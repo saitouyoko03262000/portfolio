@@ -1,0 +1,441 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+    box-shadow: 0.2rem 0.2rem 1rem 0rem #77777750;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* ******************** */
+/*        影　　        */
+/* ******************** */
+
+
+.shadow-min {
+    box-shadow: 0.2rem 0.2rem 1rem 0rem #77777725,
+        inset -0.2rem -0.2rem 0.4rem 0 rgba(204, 223, 228, 0.05),
+        inset 0.1rem 0.1rem 0.9rem 0 rgba(255, 255, 255, 0.25);
+}
+
+/* ******************** */
+/*        余白        */
+/* ******************** */
+:root {
+    --section-padding-t-b: 6.25rem;
+    --side-padding: 8%;
+}
+
+.about-section,
+.works-section {
+    padding: var(--section-padding-t-b) 0;
+}
+
+.works-section>div {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5.2vw;
+}
+
+/* ******************** */
+/*        フォント        */
+/* ******************** */
+
+@media only screen and (max-width: 320px) {
+    html {
+        font-size: 5vw;
+    }
+}
+
+/*  ** font *************************** */
+
+:root {
+    /* font color */
+    --gold: #D6AE00;
+    --dark-gold: #c6b35f;
+    --ligth-gold: #C8B974;
+    --black: #555555;
+    --pink: #EFA5B0;
+    --orange: #E69D4A;
+    --fv-bg: #F5F2E2;
+    --bg-gold: #F7F5E7;
+    --bg-pink: #FCF0F2;
+    --gray: #bcbcbc;
+
+
+    /* font-family */
+    --kaisei-decol: "Kaisei Decol", serif;
+    --zen-kaku-gothic: "Zen Kaku Gothic New", sans-serif;
+    --yomogi: "Yomogi", cursive;
+
+    /* 44.8px -> 26px */
+    --h2-size: clamp(1.625rem, 1vw + 1.4rem, 2.8125rem);
+    /* 40px -> 22px */
+    --h3-size: clamp(1.375rem, 0.9vw + 1.2rem, 2.5rem);
+    /* 24px -> 18px */
+    --h3-small-size: clamp(1.125rem, 0.3vw + 1rem, 1.5rem);
+    /* 24px -> 16px */
+    --txt-size: clamp(1rem, 0.4vw + 0.9rem, 1.5rem);
+    /* 20px -> 15px */
+    --font-20px: clamp(0.938rem, 0.25vw + 0.8rem, 1.25rem);
+    /* 18px -> 14px */
+    --font-18px: clamp(0.875rem, 0.2vw + 0.8rem, 1.125rem);
+}
+
+h2 {
+    font-family: var(--kaisei-decol);
+    color: var(--gold);
+    font-size: var(--h2-size);
+    -webkit-text-stroke: 3px #ffffff;
+    paint-order: stroke fill;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.h2-decoration-set {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.h2-decoration-set::before {
+    content: "";
+    display: inline-block;
+    width: clamp(2.5rem, 1.988rem + 2.56vw, 5.063rem);
+    aspect-ratio: 81 / 67;
+    background-image: url('../img/subheading-decoration.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: .625rem;
+    margin-top: -0.1875rem;
+
+    filter:
+        drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff);
+}
+
+.h2-center {
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 480px) {
+    .h2-decoration-set {
+        align-items: flex-start;
+    }
+}
+
+/* h2　サブタイトル有 ******************************/
+
+.works-h2-sub {
+    font-size: var(--h3-small-size);
+    color: var(--ligth-gold);
+    margin-left: .625rem;
+}
+
+.h2-decoration-set br {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .h2-decoration-set br {
+        display: block;
+    }
+
+    .works-h2-sub {
+        margin-left: 0;
+    }
+
+}
+
+.works-h2-sub::before,
+.works-h2-sub::after {
+    content: "〜";
+    margin: 0 0.8%;
+}
+
+/* ******************************** */
+
+.works-list h3 {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--h3-small-size);
+    color: var(--black);
+    font-weight: bold;
+    line-height: 1;
+}
+
+.about-img p {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+}
+
+/* 本文 */
+.about-h-p>p {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--txt-size);
+}
+
+.works-label p {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+    color: #ffff;
+    margin: 0;
+    line-height: 1;
+}
+
+.about-img p,
+.works-scope {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+    color: var(--gray);
+    font-weight: 100;
+}
+
+.about-img p span {
+    margin-left: .25rem;
+}
+
+.about-img p span:nth-of-type(2) {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .about-img p span:first-of-type {
+        display: none;
+
+    }
+
+    .about-img p span:nth-of-type(2) {
+        display: block;
+    }
+}
+
+/* ************************* */
+/*     詳しく見るボタン     　   */
+/* ************************* */
+
+.box-small-button {
+    position: relative;
+    height: 2.5rem;
+    padding: 0 1.25rem;
+    border-radius: 2.5rem;
+    font-family: var(--kaisei-decol);
+    font-size: var(--font-20px);
+    color: #ffffff;
+    background-color: var(--gold);
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    backface-visibility: hidden;
+    will-change: transform;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border 0.3s ease,
+        transform 0.4s ease;
+}
+
+.box-small-button:hover {
+    background-color: #ffffff;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    transform: scale(1.08);
+}
+
+/* ******************** */
+/*        hover         */
+/*      js-glitter      */
+/* ******************** */
+.star {
+    position: absolute;
+    display: block;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-image: url("../img/star-yellow.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    animation: glitter 1s;
+    pointer-events: none;
+}
+
+/* キラキラが発生するアニメーション */
+@keyframes glitter {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* ボタンの位置 */
+.button-center {
+    display: flex;
+    justify-content: center;
+}
+
+.button-right {
+    display: flex;
+    justify-content: end;
+}
+
+/* 画面上部へ移動するボタン */
+.button-top {
+    position: fixed;
+    bottom: clamp(0.625rem, 0.25rem + 1.88vw, 2.5rem);
+    z-index: 500;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1920px;
+    pointer-events: none;
+    /* 画面上部の時 */
+    opacity: 0;
+    visibility: hidden;
+}
+
+.button-top a {
+    position: absolute;
+    right: clamp(0.625rem, 0.25rem + 1.88vw, 2.5rem);
+    bottom: 0;
+    pointer-events: auto;
+    font-family: var(--yomogi);
+    font-size: clamp(1.25rem, 0.938rem + 1.56vw, 2.813rem);
+    color: #ffff;
+    background-color: var(--gold);
+    /* padding: .9375rem; */
+    padding: clamp(0.625rem, 0.563rem + 0.31vw, 0.938rem);
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    border: 1px solid #ffff;
+    backface-visibility: hidden;
+    will-change: transform;
+    transition:
+        background-color 0.3s,
+        color 0.3s, border 0.3s,
+        transform 0.4s;
+}
+
+.button-top a:hover {
+    background-color: #ffffff;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+    transform: scale(1.05);
+}
+
+.button-top.is-active a {
+    opacity: 0.65;
+    visibility: visible;
+    transition: transform 0.4s ease;
+}
+
+.is-active:hover a {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 背景 */
+.bg-gold {
+    --bg-color: var(--bg-gold);
+}
+
+.bg-pink {
+    --bg-color: var(--bg-pink);
+}
+
+.bg-dots {
+    max-width: 1920px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    background-image: radial-gradient(circle, var(--bg-color) clamp(0.313rem, 0.256rem + 0.28vw, 0.438rem), transparent clamp(0.313rem, 0.256rem + 0.28vw, 0.438rem));
+    background-position: center 66px;
+    background-size: clamp(4.375rem, 3.097rem + 6.39vw, 7.188rem) clamp(4.375rem, 3.097rem + 6.39vw, 7.188rem);
+}
+
+
+/* ************************************************** */
+/*       inview.js                                    */
+/*       スクロールするとフェードイン                      */
+/* ************************************************** */
+/* 必須 */
+.fadeIn {
+    opacity: 0;
+    transition: 2s;
+}
+
+.fadeIn.is-show {
+    opacity: 1;
+}
+
+/* 下から *****************************/
+/* inview fadeIn fadeIn_up          */
+/* inview_re fadeIn fadeIn_up       */
+.fadeIn_up {
+    opacity: 0;
+    transform: translate(0, 50%);
+    transition: 2s;
+}
+
+.fadeIn_up.is-show {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+/* 左から ********************************/
+/* inview fadeIn fadeIn_left          */
+/* inview_re fadeIn fadeIn_left       */
+.fadeIn_left {
+    opacity: 0;
+    transform: translate(-50%, 0);
+    transition: 2s;
+}
+
+.fadeIn_left.is-show {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+/* 右から *******************************/
+/* inview fadeIn fadeIn_right          */
+/* inview_re fadeIn fadeIn_right       */
+.fadeIn_right {
+    opacity: 0;
+    transform: translate(50%, 0);
+    transition: 2s;
+}
+
+.fadeIn_right.is-show {
+    transform: translate(0, 0);
+    opacity: 1;
+}

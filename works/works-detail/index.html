@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>さいとうようこのポートフォリオ</title>
+
+    <!--ビューポート-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
+
+    <!-- css -->
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/nav.css" rel="stylesheet">
+    <link href="css/lower.css" rel="stylesheet">
+
+    <!--jQuery本体-->
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/first-view.js"></script>
+    <script src="js/hover-glitter.js" defer></script>
+    <script src="js/inview.js"></script>
+
+    <!--ready関数-->
+    <script>
+        $(function () {
+            $(".inview").on("inview", function (event, isInView) {
+                if (isInView) {
+                    $(this).stop().addClass("is-show");
+                }
+            });
+        });
+
+        $(function () {
+            $(".inview_re").on("inview", function (event, isInView) {
+                if (isInView) {
+                    $(this).stop().addClass("is-show");
+                } else {
+                    $(this).stop().removeClass("is-show");
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="top-page" id="wrapper">
+        <header>
+            <!-- js -->
+            <div class="hide-header inview fadeIn">
+                <nav class="nav-logo shadow-min js-glitter">
+                    <a class="logo logo-portfolio" href="#">
+                        ポートフォリオ
+                    </a>
+                    <a class="logo logo-name" href="#">
+                        さいとうようこ
+                    </a>
+                </nav>
+
+                <!-- right nav -->
+                <nav class="nav-pc shadow-min">
+                    <ul>
+                        <li class="drop-menu js-glitter"><a href="">制作実績</a>
+                            <div class="drop-menu-list">
+                                <ul class="drop-menu-list-dg shadow-min">
+                                    <li><a href="">一覧</a></li>
+                                    <li><a href="">詳細</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="drop-menu js-glitter"><a href="">私について</a>
+                            <div class="drop-menu-list">
+                                <ul class="drop-menu-list-dg shadow-min">
+                                    <li><a href="">基本情報</a></li>
+                                    <li><a href="">強み</a></li>
+                                    <li><a href="">スキル</a></li>
+                                    <li><a href="">目標</a></li>
+                                    <li><a href="">経歴</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- hamburger-menu -->
+            <button class="nav-phone hamburger-menu shadow-min" id="js-hamburger-menu">
+                <span class="hamburger-menu__bar"></span>
+                <span class="hamburger-menu__bar"></span>
+                <span class="hamburger-menu__bar"></span>
+            </button>
+
+            <!-- hamburger-menu open -->
+            <nav class="nav-right nav-phone navigation">
+                <div class="navigation-logo  js-glitter">
+                    <a class="logo logo-portfolio" href="#">
+                        ポートフォリオ
+                    </a>
+                    <a class="logo logo-name" href="#">
+                        さいとうようこ
+                    </a>
+                </div>
+
+                <div class="navigation-border">
+                    <ul class="navigation__list">
+                        <li><a href="" class="navigation__link">制作物</a>
+                            <ul>
+                                <li><a href="" class="navigation__link navigation__link-sub">一覧</a></li>
+                                <li><a href="" class="navigation__link navigation__link-sub">詳細</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="" class="navigation__link">私について</a>
+                            <ul>
+                                <li><a href="" class="navigation__link navigation__link-sub">プロフィール</a></li>
+                                <li><a href="" class="navigation__link navigation__link-sub">強み</a></li>
+                                <li><a href="" class="navigation__link navigation__link-sub">スキル</a></li>
+                                <li><a href="" class="navigation__link navigation__link-sub">目標</a></li>
+                                <li><a href="" class="navigation__link navigation__link-sub">経歴</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="button-top inview fadeIn">
+            <a href="#">
+                TOP
+            </a>
+        </div>
+
+        <!-- first view -->
+        <main>
+            <div class="first-view shadow-min inview fadeIn">
+                <div id="bubble-container">
+                    <div class="scroll-down side-width" id="type01">
+                        <a href="#">Scroll</a>
+                    </div>
+
+                    <div class="top-h1">
+                        <h1><span class="h1-portfolio">Portfolio</span><br>
+                            <span class="h1-name">Saito Yoko</span>
+                        </h1>
+                    </div>
+
+                    <div class="side-width"></div>
+                </div>
+            </div>
+
+            <section class="about-section">
+                <div class="about-img inview fadeIn_left">
+                    <img src="img/about-self.png" width="962" height="734" alt="さいとうようこのプロフィール写真">
+                    <p><span>イラスト: 友人</span><span>友人 作</span></p>
+                </div>
+
+                <div class="about-h-p-contains inview fadeIn_up">
+                    <div class="about-h-p">
+                        <h2 class="h2-decoration-set">
+                            <span class="h2-center">私について</span>
+                        </h2>
+                        <p>2000.3.26</p>
+
+                        <!-- 詳しく見るボタン -->
+                        <div class="button-right">
+                            <a href="" class="box-small-button">
+                                <p>詳しく見る</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="works-section bg-dots bg-gold">
+                <div>
+                    <h2 class="h2-decoration-set inview fadeIn_up">
+                        <span class="h2-center">制作実績<br><span class="works-h2-sub">Webサイト</span></span>
+                    </h2>
+
+                    <div class="works-list">
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="img/works-list-museum.png" width="781" height="491"
+                                            alt="恐竜博物館の企画展のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>恐竜博物館の企画展</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="img/works-list-sauna.png" width="781" height="491" alt="サウナ施設のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-team">
+                                                <p>チーム制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>サウナ施設</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="img/works-list-whiskey.png" width="781" height="491"
+                                            alt="ウイスキー蒸留所のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-team">
+                                                <p>チーム制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>ウイスキー蒸留所</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="img/works-list-jewelry-shop.png" width="781" height="491"
+                                            alt="ジュエリーショップのWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>ジュエリーショップ</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="img/works-list-chair-shop.png" width="781" height="491"
+                                            alt="椅子販売店のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>椅子販売店</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 詳しく見るボタン -->
+                    <div class="button-center inview fadeIn_up">
+                        <a href="" class="box-small-button">
+                            <p>詳しく見る</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>©2026 Saito Yoko</p>
+        </footer>
+    </div>
+</body>
+
+</html>

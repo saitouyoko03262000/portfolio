@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>さいとうようこのポートフォリオ</title>
+
+    <!--ビューポート-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ファビコン -->
+    <link rel="icon" href="assets/img/favicon.svg">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
+
+    <!-- css -->
+    <link href="assets/css/reset.css" rel="stylesheet">
+    <link href="assets/css/common.css" rel="stylesheet">
+    <link href="assets/css/nav.css" rel="stylesheet">
+    <link href="assets/css/lower.css" rel="stylesheet">
+
+    <!--jQuery本体-->
+    <script src="assets/js/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/first-view.js"></script>
+    <script src="assets/js/hover-glitter.js" defer></script>
+    <script src="assets/js/inview.js"></script>
+
+    <!--ready関数-->
+    <script>
+        // ヘッダーの読み込み
+        fetch("/common/header.html") // パスは自分の構成に合わせて調整
+            .then(response => {
+                if (!response.ok) throw new Error("ヘッダーが見つかりません");
+                return response.text();
+            })
+            .then(data => {
+                document.querySelector("#header").innerHTML = data;
+            })
+            .catch(error => console.error(error));
+
+        // フッターを共通化する場合（HTML内に <div id="footer-placeholder"></div> が必要）
+        // fetch("/common/footer.html")
+        //     .then(response => response.text())
+        //     .then(data => document.querySelector("#footer-placeholder").innerHTML = data);
+
+        $(function () {
+            $(".inview").on("inview", function (event, isInView) {
+                if (isInView) {
+                    $(this).stop().addClass("is-show");
+                }
+            });
+
+            $(".inview_re").on("inview", function (event, isInView) {
+                if (isInView) {
+                    $(this).stop().addClass("is-show");
+                } else {
+                    $(this).stop().removeClass("is-show");
+                }
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="top-page" id="wrapper">
+        <div id="header"></div>
+
+
+        <!-- first view -->
+        <main>
+            <!-- <div class="first-view shadow-min inview fadeIn">
+                <div id="bubble-container">
+                    <div class="scroll-down side-width" id="type01">
+                        <a href="#">Scroll</a>
+                    </div>
+
+                    <div class="top-h1">
+                        <h1><span class="h1-portfolio">Portfolio</span><br>
+                            <span class="h1-name">Saito Yoko</span>
+                        </h1>
+                    </div>
+
+                    <div class="side-width"></div>
+                </div>
+            </div> -->
+
+            <section class="about-section">
+                <div class="about-img inview fadeIn_left">
+                    <img src="assets/img/about-self.png" width="962" height="734" alt="さいとうようこのプロフィール写真">
+                    <p><span>イラスト: 友人</span><span>友人 作</span></p>
+                </div>
+
+                <div class="about-h-p-contains inview fadeIn_up">
+                    <div class="about-h-p">
+                        <h2 class="h2-decoration-set">
+                            <span class="h2-center">私について</span>
+                        </h2>
+                        <p>2000.3.26</p>
+
+                        <!-- 詳しく見るボタン -->
+                        <div class="button-right">
+                            <a href="" class="box-small-button">
+                                <p>詳しく見る</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="works-section bg-dots bg-gold">
+                <div>
+                    <h2 class="h2-decoration-set inview fadeIn_up">
+                        <span class="h2-center">制作実績<br><span class="works-h2-sub">Webサイト</span></span>
+                    </h2>
+
+                    <div class="works-list">
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="assets/img/works-list-museum.png" width="781" height="491"
+                                            alt="恐竜博物館の企画展のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>恐竜博物館の企画展</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="assets/img/works-list-sauna.png" width="781" height="491"
+                                            alt="サウナ施設のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-team">
+                                                <p>チーム制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>サウナ施設</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="assets/img/works-list-whiskey.png" width="781" height="491"
+                                            alt="ウイスキー蒸留所のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-team">
+                                                <p>チーム制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>ウイスキー蒸留所</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="assets/img/works-list-jewelry-shop.png" width="781" height="491"
+                                            alt="ジュエリーショップのWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span><span>コーディング</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>ジュエリーショップ</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="">
+                                <section class="works-overview shadow-min inview fadeIn_up">
+                                    <div class="works-overview-area">
+                                        <img src="assets/img/works-list-chair-shop.png" width="781" height="491"
+                                            alt="椅子販売店のWEBサイト">
+                                    </div>
+
+                                    <div class="works-txt">
+                                        <div class="works-meta">
+                                            <div class="works-label is-solo">
+                                                <p>個人制作</p>
+                                            </div>
+
+                                            <div class="works-scope">
+                                                <span>デザイン</span>
+                                            </div>
+                                        </div>
+
+                                        <h3>椅子販売店</h3>
+                                    </div>
+                                </section>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 詳しく見るボタン -->
+                    <div class="button-center inview fadeIn_up">
+                        <a href="" class="box-small-button">
+                            <p>詳しく見る</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- footer -->
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>
