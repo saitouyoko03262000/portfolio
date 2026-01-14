@@ -1,7 +1,32 @@
-function initNav() {
-    // ...これまでのメニューの動き...
+// common.js
 
-    // ここに inview の設定を入れる！
+$(function () {
+    // ヘッダー読み込み
+    fetch("./common/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+            document.querySelector("#header").innerHTML = data;
+
+            // 1. nav.js のメニュー機能を実行
+            initNav();
+            
+            // 2. hover-glitter.js のキラキラ機能を実行
+            initGlitter();
+            
+            // 3. このファイル(common.js)にあるinview機能を実行
+            initInview();
+        });
+
+    // フッター読み込み
+    fetch("./common/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+            document.querySelector("#footer").innerHTML = data;
+        });
+});
+
+// inview専用の関数として名前を変えます
+function initInview() {
     $(".inview").off("inview").on("inview", function (event, isInView) {
         if (isInView) {
             $(this).stop().addClass("is-show");
@@ -16,22 +41,3 @@ function initNav() {
         }
     });
 }
-
-$(function () {
-    // ヘッダー読み込み
-    fetch("./common/header.html")
-        .then((response) => response.text())
-        .then((data) => {
-            document.querySelector("#header").innerHTML = data;
-
-            // ここで nav.js の中身を起動する！
-            initNav();
-        });
-
-    // フッター読み込み
-    fetch("./common/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-            document.querySelector("#footer").innerHTML = data;
-        });
-});
