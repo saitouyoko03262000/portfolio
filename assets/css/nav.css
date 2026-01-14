@@ -464,13 +464,14 @@ header a {
 /*     footer                      */
 /* ******************************** */
 
-footer{
+footer {
     width: 100%;
+    text-align: center;
+    padding: .625rem 0;
     background-color: var(--gold);
-    padding: .625rem;
 }
 
-footer small{
+footer small {
     font-family: var(--yomogi);
     font-size: var(--txt-size);
     color: #ffff;
