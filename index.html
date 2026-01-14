@@ -33,17 +33,25 @@
 
     <!--ready関数-->
     <script>
-        // 今あるfetchの部分を、このように $(function() { ... }); で囲むと安定します
         $(function () {
+            // ヘッダー読み込み
             fetch("./common/header.html")
                 .then((response) => response.text())
-                .then((data) => document.querySelector("#header").innerHTML = data);
+                .then((data) => {
+                    document.querySelector("#header").innerHTML = data;
+
+                    // ここで nav.js の中身を起動する！
+                    initNav();
+                });
+
+            // フッター読み込み
             fetch("./common/footer.html")
                 .then((response) => response.text())
-                .then((data) => document.querySelector("#footer").innerHTML = data);
-        });
+                .then((data) => {
+                    document.querySelector("#footer").innerHTML = data;
+                });
 
-        $(function () {
+                
             $(".inview").on("inview", function (event, isInView) {
                 if (isInView) {
                     $(this).stop().addClass("is-show");
@@ -70,7 +78,7 @@
 
         <!-- first view -->
         <main>
-            <div class="first-view shadow-min inview fadeIn">
+            <!-- <div class="first-view shadow-min inview fadeIn">
                 <div id="bubble-container">
                     <div class="scroll-down side-width" id="type01">
                         <a href="#">Scroll</a>
@@ -84,7 +92,7 @@
 
                     <div class="side-width"></div>
                 </div>
-            </div>
+            </div> -->
 
             <section class="about-section">
                 <div class="about-img inview fadeIn_left">

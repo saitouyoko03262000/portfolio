@@ -1,30 +1,30 @@
-// ヘッダー　スクロールしたら消える
-$(function () {
+// 全体を initNav という関数にまとめます
+function initNav() {
 
+    // 1. ヘッダー：スクロールしたら消える
     const header = $('.hide-header');
     const headerHeight = header.outerHeight();
     let beforeScrollTop = 0;
-    $(window).scroll(function () {
+
+    $(window).off('scroll.header'); // 二重登録防止
+    $(window).on('scroll.header', function () {
         const scrollTop = $(this).scrollTop();
         if ((scrollTop > beforeScrollTop) && (scrollTop > headerHeight)) {
             header.addClass('js_hide');
-        }
-        else {
+        } else {
             header.removeClass('js_hide');
         }
         beforeScrollTop = scrollTop;
     });
-});
 
-// ハンバーガーメニュー
-$(function () {
-    $('#js-hamburger-menu, .navigation__link').on('click', function () {
-        $('.navigation').toggleClass('is-open')
-        $('.hamburger-menu').toggleClass('hamburger-menu--open')
+    // 2. ハンバーガーメニュー
+    // off('click')を入れておくと、二重に動くのを防げます
+    $('#js-hamburger-menu, .navigation__link').off('click').on('click', function () {
+        $('.navigation').toggleClass('is-open');
+        $('.hamburger-menu').toggleClass('hamburger-menu--open');
     });
 
-    $(document).on('click', function (e) {
-        // クリックされた場所が「メニュー本体」でも「ボタン」でもなければ閉じる
+    $(document).off('click.navClose').on('click.navClose', function (e) {
         if (!$(e.target).closest('.navigation').length && !$(e.target).closest('#js-hamburger-menu').length) {
             if ($('.navigation').hasClass('is-open')) {
                 $('.navigation').removeClass('is-open');
@@ -32,24 +32,17 @@ $(function () {
             }
         }
     });
-});
 
-// 画面上部へ行く、スクロール中は非表示
-$(function () {
+    // 3. 画面上部へ行く（TOPボタン）
     var btn = $('.button-top');
     var timer;
 
-    $(window).scroll(function () {
-        //スクロール開始するとボタンを非表示
+    $(window).off('scroll.topBtn');
+    $(window).on('scroll.topBtn', function () {
         btn.removeClass('is-active');
-
-        //スクロール中はイベントの発火をキャンセルする
         clearTimeout(timer);
-
-        //スクロールが停止して0.2秒後にイベントを発火する
         timer = setTimeout(function () {
-            //スクロール位置を判定してページ上部のときはボタンを非表示にする
-            if ($(this).scrollTop()) {
+            if ($(window).scrollTop() > 100) { // 少しスクロールしたら表示
                 btn.addClass('is-active');
             } else {
                 btn.removeClass('is-active');
@@ -57,10 +50,10 @@ $(function () {
         }, 200);
     });
 
-    //ボタンクリックでトップへ戻る
-    btn.on('click', function () {
+    btn.off('click').on('click', function () {
         $('body,html').animate({
             scrollTop: 0
-        });
+        }, 500);
+        return false;
     });
-});
+}
