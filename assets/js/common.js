@@ -26,7 +26,8 @@ $(function () {
 });
 
 // inview専用の関数として名前を変えます
-function initInview() {
+// function initInview() {
+$(function () {
     $(".inview").off("inview").on("inview", function (event, isInView) {
         if (isInView) {
             $(this).stop().addClass("is-show");
@@ -40,4 +41,4 @@ function initInview() {
             $(this).stop().removeClass("is-show");
         }
     });
-}
+});

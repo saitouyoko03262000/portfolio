@@ -400,6 +400,24 @@ header a {
     vertical-align: middle;
 }
 
+/* drop-menu > a hover */
+.drop-menu > a:before{
+    content: "";
+    display: inline-block;
+    width: 1.875rem;
+    margin-left: -1.875rem;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+.drop-menu:has(.drop-menu-list-dg:hover)>a::before,
+.drop-menu > a:hover::before{
+    aspect-ratio: 10 / 10;
+    background-image: url('../img/current-hover.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 /* current機能 */
 .current-page::before {
     content: "";

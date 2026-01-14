@@ -1,14 +1,25 @@
 $(function () {
+    // const container = $('#bubble-container');
+    // const imageUrls = [
+    //     'assets/img/first-view-chair-shop.png',
+    //     'assets/img/first-view-chaina.png',
+    //     'assets/img/first-view-korea.png',
+    //     'assets/img/first-view-camera-kodak.png',
+    //     'assets/img/first-view-stitch.png',
+    //     'assets/img/first-view-camera-nikon.png',
+    //     'assets/img/first-view-self.png'
+    // ];
+
     const container = $('#bubble-container');
-    const imageUrls = [
-        'assets/img/first-view-chair-shop.png',
-        'assets/img/first-view-chaina.png',
-        'assets/img/first-view-korea.png',
-        'assets/img/first-view-camera-kodak.png',
-        'assets/img/first-view-stitch.png',
-        'assets/img/first-view-camera-nikon.png',
-        'assets/img/first-view-self.png'
-    ];
+    if (!container.length) return; 
+    // 要素がないページでは実行しない
+
+    // 画像の置き換え
+    // --- HTMLから画像パスを読み込む ---
+    // カンマ区切りで書かれたパスを配列に変換する
+    const rawImages = container.attr('data-images');
+    if (!rawImages) return; 
+    const imageUrls = rawImages.split(',');
 
     // --- 設定値 ---
     const minSpeed = 0.3;  // 最低速度
