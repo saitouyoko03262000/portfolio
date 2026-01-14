@@ -474,7 +474,7 @@ footer small{
     font-family: var(--yomogi);
     font-size: var(--txt-size);
     color: #ffff;
-    text-align: center;    
+    margin: 0 auto;
 }
 
 /* ******************** */

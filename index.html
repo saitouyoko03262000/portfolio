@@ -30,43 +30,11 @@
     <script src="assets/js/first-view.js"></script>
     <script src="assets/js/hover-glitter.js" defer></script>
     <script src="assets/js/inview.js"></script>
+    <script src="assets/js/common.js"></script>
 
     <!--ready関数-->
     <script>
-        $(function () {
-            // ヘッダー読み込み
-            fetch("./common/header.html")
-                .then((response) => response.text())
-                .then((data) => {
-                    document.querySelector("#header").innerHTML = data;
 
-                    // ここで nav.js の中身を起動する！
-                    initNav();
-                });
-
-            // フッター読み込み
-            fetch("./common/footer.html")
-                .then((response) => response.text())
-                .then((data) => {
-                    document.querySelector("#footer").innerHTML = data;
-                });
-
-                
-            $(".inview").on("inview", function (event, isInView) {
-                if (isInView) {
-                    $(this).stop().addClass("is-show");
-                }
-            });
-
-            $(".inview_re").on("inview", function (event, isInView) {
-                if (isInView) {
-                    $(this).stop().addClass("is-show");
-                } else {
-                    $(this).stop().removeClass("is-show");
-                }
-            });
-
-        });
     </script>
 
 </head>
