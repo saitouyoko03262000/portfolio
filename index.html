@@ -33,21 +33,15 @@
 
     <!--ready関数-->
     <script>
-        // ヘッダーの読み込み
-        fetch("/common/header.html") // パスは自分の構成に合わせて調整
-            .then(response => {
-                if (!response.ok) throw new Error("ヘッダーが見つかりません");
-                return response.text();
-            })
-            .then(data => {
-                document.querySelector("#header").innerHTML = data;
-            })
-            .catch(error => console.error(error));
-
-        // フッターを共通化する場合（HTML内に <div id="footer-placeholder"></div> が必要）
-        // fetch("/common/footer.html")
-        //     .then(response => response.text())
-        //     .then(data => document.querySelector("#footer-placeholder").innerHTML = data);
+        // 今あるfetchの部分を、このように $(function() { ... }); で囲むと安定します
+        $(function () {
+            fetch("./common/header.html")
+                .then((response) => response.text())
+                .then((data) => document.querySelector("#header").innerHTML = data);
+            fetch("./common/footer.html")
+                .then((response) => response.text())
+                .then((data) => document.querySelector("#footer").innerHTML = data);
+        });
 
         $(function () {
             $(".inview").on("inview", function (event, isInView) {
@@ -76,7 +70,7 @@
 
         <!-- first view -->
         <main>
-            <!-- <div class="first-view shadow-min inview fadeIn">
+            <div class="first-view shadow-min inview fadeIn">
                 <div id="bubble-container">
                     <div class="scroll-down side-width" id="type01">
                         <a href="#">Scroll</a>
@@ -90,7 +84,7 @@
 
                     <div class="side-width"></div>
                 </div>
-            </div> -->
+            </div>
 
             <section class="about-section">
                 <div class="about-img inview fadeIn_left">
@@ -258,4 +252,5 @@
         <div id="footer"></div>
     </div>
 </body>
+
 </html>
