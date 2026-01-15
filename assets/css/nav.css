@@ -24,7 +24,7 @@ header a {
 
 .nav-logo:has(a:hover) a,
 .drop-menu>a:hover,
-.drop-menu:has(.drop-menu-list-dg li:hover)>a {
+.drop-menu:has(.drop-menu-list-dg:hover)>a {
     color: var(--dark-gold);
 }
 
