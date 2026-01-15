@@ -18,6 +18,7 @@
 .works-page .first-view ,
 .about-page .first-view{
     height: 34vh;
+    background-color: var(--fv-bg);
 }
 
 .top-page #bubble-container{

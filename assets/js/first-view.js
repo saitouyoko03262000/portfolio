@@ -18,8 +18,6 @@ $(function () {
     // --- HTMLから画像パスを読み込む ---
     // カンマ区切りで書かれたパスを配列に変換する
     const rawImages = container.attr('data-images');
-    img.draggable = false;
-    // ドラック・ドロップ
 
     if (!rawImages) return; 
     const imageUrls = rawImages.split(',');
