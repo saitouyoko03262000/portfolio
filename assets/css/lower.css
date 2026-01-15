@@ -11,12 +11,12 @@
     background-color: #ffffff;
 }
 
-.top-page .first-view {
+.top-page .first-view #bubble-container{
     height: 100vh;
 }
 
-.works-page .first-view ,
-.about-page .first-view{
+.works-page .first-view #bubble-container,
+.about-page .first-view #bubble-container{
     height: 34vh;
     background-color: var(--fv-bg);
 }
