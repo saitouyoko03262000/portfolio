@@ -1,10 +1,12 @@
+// 全体を initNav という関数にまとめます
 function initNav() {
+
     // 1. ヘッダー：スクロールしたら消える
     const header = $('.hide-header');
     const headerHeight = header.outerHeight();
     let beforeScrollTop = 0;
 
-    $(window).off('scroll.header');
+    $(window).off('scroll.header'); // 二重登録防止
     $(window).on('scroll.header', function () {
         const scrollTop = $(this).scrollTop();
         if ((scrollTop > beforeScrollTop) && (scrollTop > headerHeight)) {
@@ -16,6 +18,7 @@ function initNav() {
     });
 
     // 2. ハンバーガーメニュー
+    // off('click')を入れておくと、二重に動くのを防げます
     $('#js-hamburger-menu, .navigation__link').off('click').on('click', function () {
         $('.navigation').toggleClass('is-open');
         $('.hamburger-menu').toggleClass('hamburger-menu--open');
@@ -39,7 +42,7 @@ function initNav() {
         btn.removeClass('is-active');
         clearTimeout(timer);
         timer = setTimeout(function () {
-            if ($(window).scrollTop() > 100) {
+            if ($(window).scrollTop() > 100) { // 少しスクロールしたら表示
                 btn.addClass('is-active');
             } else {
                 btn.removeClass('is-active');
@@ -55,38 +58,25 @@ function initNav() {
     });
 }
 
-// ヘッダー読み込み関数
-// function loadHeader(pageName) {
-//     fetch('/portfolio/common/header.html')
-//         .then(response => response.text())
-//         .then(data => {
-//             // HTMLを挿入
-//             const headerArea = document.getElementById('header');
-//             if (headerArea) {
-//                 headerArea.innerHTML = data;
-//             }
+// pageName引数を受け取るようにする
+function loadHeader(pageName) {
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('header').innerHTML = data;
 
-//             // 現在地表示のクラス付与（.nav-item-works など）
-//             if (pageName) {
-//                 const currentLink = document.querySelector(`.nav-item-${pageName}`);
-//                 if (currentLink) {
-//                     currentLink.classList.add('current-page');
-//                 }
-//             }
-
-//             // 【ここが重要！】
-//             // ヘッダーがHTMLに挿入された「直後」に、
-//             // ボタンやスクロールのイベントを登録する
-//             initNav();
-//         })
-//         .catch(error => console.error('Error loading header:', error));
-// }
-
-function highlightCurrentPage(pageName) {
-    if (pageName) {
-        const currentLink = document.querySelector(`.nav-item-${pageName}`);
-        if (currentLink) {
-            currentLink.classList.add('current-page');
-        }
-    }
+            // 引数で渡されたクラス名に .current-page を付与する
+            if (pageName) {
+                const currentLink = document.querySelector(`.nav-item-${pageName}`);
+                if (currentLink) {
+                    currentLink.classList.add('current-page');
+                }
+            }
+        });
 }
+
+// 制作実績ページ（index.html）なら
+loadHeader('works');
+
+// 私についてページ（about.html）なら
+loadHeader('about');
