@@ -81,3 +81,12 @@ function initNav() {
 //         })
 //         .catch(error => console.error('Error loading header:', error));
 // }
+
+function highlightCurrentPage(pageName) {
+    if (pageName) {
+        const currentLink = document.querySelector(`.nav-item-${pageName}`);
+        if (currentLink) {
+            currentLink.classList.add('current-page');
+        }
+    }
+}
