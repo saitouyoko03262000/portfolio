@@ -439,10 +439,10 @@ header a {
 
 
 /* hamburger-menu small ******************************/
-/* @media only screen and (max-width: 480px) {
+@media only screen and (max-width: 480px) {
     .hamburger-menu {
-        width: 2.75rem;
-        height: 2.75rem;
+        width: 54px;
+        height: 54px;
     }
 
     .hamburger-menu__bar {
@@ -454,15 +454,15 @@ header a {
     }
 
     .hamburger-menu__bar:first-child {
-        top: 1rem;
+        top: 1.1875rem;
     }
 
     .hamburger-menu__bar:nth-child(2) {
-        top: 1.375rem;
+        top: 1.6875rem;
     }
 
     .hamburger-menu__bar:last-child {
-        top: 1.75rem;
+        top: 1.5625rem;
     }
 
     .hamburger-menu--open .hamburger-menu__bar:first-child {
@@ -476,7 +476,7 @@ header a {
         left: 50%;
         transform: translateX(-50%) translateY(-50%) rotate(-45deg);
     }
-} */
+}
 
 /* ******************************** */
 /*     footer                      */
