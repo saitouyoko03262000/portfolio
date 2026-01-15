@@ -21,12 +21,15 @@ li {
 img {
     width: 100%;
     height: auto;
+}
 
-    -webkit-user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    outline: none;
-    user-select: none;
-    -webkit-touch-callout: none;
+#bubble-container
+#bubble-container img{
+      -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ******************** */

@@ -15,10 +15,22 @@
     height: 100vh;
 }
 
+.works-page .first-view ,
+.about-page .first-view{
+    height: 34vh;
+}
 
+.top-page #bubble-container{
+    display: flex;
+    justify-content: space-between;
+}
 
-/* bubbles.css */
+.works-page #bubble-container,
+.about-page #bubble-container{
 
+}
+
+/* bubbles.js */
 #bubble-container {
     top: 0;
     left: 0;
@@ -27,9 +39,6 @@
     pointer-events: none;
     overflow: hidden;
     z-index: 20;
-
-    display: flex;
-    justify-content: space-between;
 }
 
 .bubble {
@@ -47,7 +56,6 @@
 /* ******************************** */
 /*     top page  fist-view          */
 /* ******************************** */
-
 
 .side-width {
     width: 5%;
