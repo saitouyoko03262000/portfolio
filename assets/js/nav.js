@@ -58,25 +58,55 @@ function initNav() {
     });
 }
 
-// pageName引数を受け取るようにする
+
+// 他の initNav などの処理はそのまま残しておく
+
 function loadHeader(pageName) {
+    // パスはご自身の環境（/portfolio/common/header.htmlなど）に合わせてください
     fetch('/portfolio/common/header.html')
         .then(response => response.text())
         .then(data => {
-            document.querySelector('header').innerHTML = data;
+            // 1. HTMLを挿入
+            const headerArea = document.getElementById('header');
+            if (headerArea) {
+                headerArea.innerHTML = data;
+            }
 
-            // 引数で渡されたクラス名に .current-page を付与する
+            // 2. current機能（現在地の判定）
             if (pageName) {
                 const currentLink = document.querySelector(`.nav-item-${pageName}`);
                 if (currentLink) {
                     currentLink.classList.add('current-page');
                 }
             }
-        });
+
+            // 3. 外部機能の起動（fetchが終わった後に行う）
+            initNav();      // ハンバーガーメニューなど
+            initGlitter();  // ★キラキラ機能をここで呼ぶ！
+        })
+        .catch(error => console.error('Error loading header:', error));
 }
 
-// 制作実績ページ（index.html）なら
-loadHeader('works');
 
-// 私についてページ（about.html）なら
-loadHeader('about');
+// // pageName引数を受け取るようにする
+// function loadHeader(pageName) {
+//     fetch('/portfolio/common/header.html')
+//         .then(response => response.text())
+//         .then(data => {
+//             document.querySelector('header').innerHTML = data;
+
+//             // 引数で渡されたクラス名に .current-page を付与する
+//             if (pageName) {
+//                 const currentLink = document.querySelector(`.nav-item-${pageName}`);
+//                 if (currentLink) {
+//                     currentLink.classList.add('current-page');
+//                 }
+//             }
+//         });
+// }
+
+// // 制作実績ページ（index.html）なら
+// loadHeader('works');
+
+// // 私についてページ（about.html）なら
+// loadHeader('about');
