@@ -439,10 +439,10 @@ header a {
 
 
 /* hamburger-menu small ******************************/
-@media only screen and (max-width: 480px) {
+/* @media only screen and (max-width: 480px) {
     .hamburger-menu {
-        width: 44px;
-        height: 44px;
+        width: 2.75rem;
+        height: 2.75rem;
     }
 
     .hamburger-menu__bar {
@@ -476,7 +476,7 @@ header a {
         left: 50%;
         transform: translateX(-50%) translateY(-50%) rotate(-45deg);
     }
-}
+} */
 
 /* ******************************** */
 /*     footer                      */
