@@ -2,7 +2,7 @@
 
 $(function () {
     // ヘッダー読み込み
-    fetch("/portfolio/common/header.html")
+    fetch("./common/header.html")
         .then((response) => response.text())
         .then((data) => {
             document.querySelector("#header").innerHTML = data;
@@ -14,11 +14,11 @@ $(function () {
             initGlitter();
             
             // 3. このファイル(common.js)にあるinview機能を実行
-        //     initInview();
+            initInview();
         });
 
     // フッター読み込み
-    fetch("/portfolio/common/footer.html")
+    fetch("./common/footer.html")
         .then((response) => response.text())
         .then((data) => {
             document.querySelector("#footer").innerHTML = data;
