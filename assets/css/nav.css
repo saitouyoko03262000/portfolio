@@ -235,10 +235,17 @@ header a {
 
 }
 
-/* ハンバーガーメニュー */
+/*********************************/
+/*      ハンバーガーメニュー          */
+/*********************************/
+:root {
+    --humburger-menu-width: 4.375rem;
+    --humburger-menu-bar-space: .625rem;
+}
+
 .hamburger-menu {
-    width: 4.375rem;
-    height: 4.375rem;
+    width: var(--humburger-menu-width);
+    height: var(--humburger-menu-width);
     position: fixed;
     border: none;
     background: transparent;
@@ -274,15 +281,15 @@ header a {
 }
 
 .hamburger-menu__bar:first-child {
-    top: 1.5625rem;
+    top: calc((var(--humburger-menu-width)/2) - var(--humburger-menu-bar-space));
 }
 
 .hamburger-menu__bar:nth-child(2) {
-    top: 2.1875rem;
+    top: calc(var(--humburger-menu-width)/2);
 }
 
 .hamburger-menu__bar:last-child {
-    top: 2.8125rem;
+    top: calc((var(--humburger-menu-width)/2) + var(--humburger-menu-bar-space));
 }
 
 /* hamburger-menu open **********************/
@@ -401,7 +408,7 @@ header a {
 }
 
 /* drop-menu > a hover */
-.drop-menu > a:before{
+.drop-menu>a:before {
     content: "";
     display: inline-block;
     width: 1.875rem;
@@ -411,7 +418,7 @@ header a {
 }
 
 .drop-menu:has(.drop-menu-list-dg:hover)>a::before,
-.drop-menu > a:hover::before{
+.drop-menu>a:hover::before {
     aspect-ratio: 10 / 10;
     background-image: url('../img/current-hover.svg');
     background-size: contain;
@@ -439,10 +446,10 @@ header a {
 
 
 /* hamburger-menu small ******************************/
-/* @media only screen and (max-width: 480px) {
-    .hamburger-menu {
-        width: 2.75rem;
-        height: 2.75rem;
+@media only screen and (max-width: 480px) {
+    :root {
+        --humburger-menu-width: .5625rem;
+        --humburger-menu-bar-space: 8px;
     }
 
     .hamburger-menu__bar {
@@ -451,18 +458,6 @@ header a {
         width: 50%;
         left: 50%;
         transform: translateX(-50%);
-    }
-
-    .hamburger-menu__bar:first-child {
-        top: 1rem;
-    }
-
-    .hamburger-menu__bar:nth-child(2) {
-        top: 1.375rem;
-    }
-
-    .hamburger-menu__bar:last-child {
-        top: 1.75rem;
     }
 
     .hamburger-menu--open .hamburger-menu__bar:first-child {
@@ -476,7 +471,7 @@ header a {
         left: 50%;
         transform: translateX(-50%) translateY(-50%) rotate(-45deg);
     }
-} */
+}
 
 /* ******************************** */
 /*     footer                      */
