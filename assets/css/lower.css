@@ -8,9 +8,14 @@
 /* ******************** */
 
 .first-view {
-    height: 100vh;
     background-color: #ffffff;
 }
+
+.top-page .first-view {
+    height: 100vh;
+}
+
+
 
 /* bubbles.css */
 
