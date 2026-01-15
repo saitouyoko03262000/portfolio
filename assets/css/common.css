@@ -100,6 +100,19 @@ img {
     --font-18px: clamp(0.875rem, 0.2vw + 0.8rem, 1.125rem);
 }
 
+
+/* h1 */
+.lower-page-h1 h1{
+    font-family: var(--kaisei-decol);
+    color: #ffffff;
+    mix-blend-mode: difference;
+    line-height: 1;
+    text-align: center;
+    z-index: 30;
+}
+
+/*  */
+
 h2 {
     font-family: var(--kaisei-decol);
     color: var(--gold);

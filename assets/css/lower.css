@@ -26,10 +26,18 @@
     justify-content: space-between;
 }
 
-.works-page #bubble-container,
-.about-page #bubble-container{
+.lower-page-h1 {
+    height: 34vh;
+    display: flex;
+    align-items: center;
 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
+
+
 
 /* bubbles.js */
 #bubble-container {
