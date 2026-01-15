@@ -1,4 +1,6 @@
 // assets/js/hover-glitter.js
+
+
 function initGlitter() {
     // js-glitterクラスがついた要素を全て取得
     const glitterEls = document.querySelectorAll(".js-glitter");
