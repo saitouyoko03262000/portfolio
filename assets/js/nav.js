@@ -57,7 +57,7 @@ function initNav() {
 
 // ヘッダー読み込み関数
 function loadHeader(pageName) {
-    fetch('header.html')
+    fetch('/common/header.html')
         .then(response => response.text())
         .then(data => {
             // HTMLを挿入
