@@ -15,9 +15,13 @@
     height: 100vh;
 }
 
+root{
+    --lower-page-height: 50vw;
+}
+
 .works-page .first-view #bubble-container,
 .about-page .first-view #bubble-container{
-    height: 34vh;
+    height: var(--lower-page-height);
     background-color: var(--fv-bg);
 }
 
@@ -27,7 +31,7 @@
 }
 
 .lower-page-h1 {
-    height: 34vh;
+    height: var(--lower-page-height);
     display: flex;
     align-items: center;
 
