@@ -60,7 +60,7 @@ function initNav() {
 
 // pageName引数を受け取るようにする
 function loadHeader(pageName) {
-    fetch('header.html')
+    fetch('/portfolio/common/header.html')
         .then(response => response.text())
         .then(data => {
             document.querySelector('header').innerHTML = data;
