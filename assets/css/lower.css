@@ -7,22 +7,23 @@
 /*     fist-view        */
 /* ******************** */
 
-.first-view {
-    background-color: #ffffff;
-}
-
 .top-page .first-view #bubble-container{
     height: 100vh;
 }
 
 :root{
-    --lower-page-height: 50vw;
+    --lower-page-height: 50vh;
 }
 
 .works-page .first-view #bubble-container,
 .about-page .first-view #bubble-container{
     height: var(--lower-page-height);
     background-color: var(--fv-bg);
+}
+
+.top-page #bubble-container{
+    height: 100vh;
+    background-color: #ffffff;
 }
 
 .top-page #bubble-container{
@@ -48,7 +49,6 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
     pointer-events: none;
     overflow: hidden;
     z-index: 20;
