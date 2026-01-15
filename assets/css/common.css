@@ -269,17 +269,18 @@ h2 {
     justify-content: end;
 }
 
-/* 画面上部へ移動するボタン */
+/* ********************************* */
+/*     画面上部へ移動するボタン     　   */
+/* ********************************* */
 .button-top {
     position: fixed;
-    bottom: clamp(0.625rem, 0.25rem + 1.88vw, 2.5rem);
+    bottom: clamp(1.25rem, 1rem + 1.25vw, 2.5rem);
     z-index: 500;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 1920px;
     pointer-events: none;
-    /* 画面上部の時 */
     opacity: 0;
     visibility: hidden;
 }
@@ -290,7 +291,7 @@ h2 {
     bottom: 0;
     pointer-events: auto;
     font-family: var(--yomogi);
-    font-size: clamp(1.25rem, 0.938rem + 1.56vw, 2.813rem);
+    font-size: clamp(1.875rem, 1.688rem + 0.94vw, 2.813rem);
     color: #ffff;
     background-color: var(--gold);
     /* padding: .9375rem; */
@@ -329,7 +330,9 @@ h2 {
     visibility: visible;
 }
 
-/* 背景 */
+/* ************************************ */
+/*        背景                           */
+/* ************************************ */
 .bg-gold {
     --bg-color: var(--bg-gold);
 }
