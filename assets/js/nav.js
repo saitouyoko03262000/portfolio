@@ -56,28 +56,28 @@ function initNav() {
 }
 
 // ヘッダー読み込み関数
-function loadHeader(pageName) {
-    fetch('./common/header.html')
-        .then(response => response.text())
-        .then(data => {
-            // HTMLを挿入
-            const headerArea = document.getElementById('header');
-            if (headerArea) {
-                headerArea.innerHTML = data;
-            }
+// function loadHeader(pageName) {
+//     fetch('/portfolio/common/header.html')
+//         .then(response => response.text())
+//         .then(data => {
+//             // HTMLを挿入
+//             const headerArea = document.getElementById('header');
+//             if (headerArea) {
+//                 headerArea.innerHTML = data;
+//             }
 
-            // 現在地表示のクラス付与（.nav-item-works など）
-            if (pageName) {
-                const currentLink = document.querySelector(`.nav-item-${pageName}`);
-                if (currentLink) {
-                    currentLink.classList.add('current-page');
-                }
-            }
+//             // 現在地表示のクラス付与（.nav-item-works など）
+//             if (pageName) {
+//                 const currentLink = document.querySelector(`.nav-item-${pageName}`);
+//                 if (currentLink) {
+//                     currentLink.classList.add('current-page');
+//                 }
+//             }
 
-            // 【ここが重要！】
-            // ヘッダーがHTMLに挿入された「直後」に、
-            // ボタンやスクロールのイベントを登録する
-            initNav();
-        })
-        .catch(error => console.error('Error loading header:', error));
-}
+//             // 【ここが重要！】
+//             // ヘッダーがHTMLに挿入された「直後」に、
+//             // ボタンやスクロールのイベントを登録する
+//             initNav();
+//         })
+//         .catch(error => console.error('Error loading header:', error));
+// }
