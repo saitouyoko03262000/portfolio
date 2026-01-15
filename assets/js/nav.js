@@ -57,3 +57,26 @@ function initNav() {
         return false;
     });
 }
+
+// pageName引数を受け取るようにする
+function loadHeader(pageName) {
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.querySelector('header').innerHTML = data;
+
+            // 引数で渡されたクラス名に .current-page を付与する
+            if (pageName) {
+                const currentLink = document.querySelector(`.nav-item-${pageName}`);
+                if (currentLink) {
+                    currentLink.classList.add('current-page');
+                }
+            }
+        });
+}
+
+// 制作実績ページ（index.html）なら
+loadHeader('works');
+
+// 私についてページ（about.html）なら
+loadHeader('about');
