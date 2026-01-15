@@ -6,6 +6,7 @@
     width: 100%;
     max-width: 1920px;
     box-shadow: 0.2rem 0.2rem 1rem 0rem #77777750;
+    background-color: #ffff;
 }
 
 a {
@@ -298,7 +299,7 @@ h2 {
     pointer-events: auto;
     font-family: var(--yomogi);
     /* font-size: clamp(1.875rem, 1.688rem + 0.94vw, 2.813rem); */
-    font-size: 2.813rem;
+    font-size: clamp(2.375rem, 2.288rem + 0.44vw, 2.813rem);
     color: #ffff;
     background-color: var(--gold);
     /* padding: .9375rem; */
