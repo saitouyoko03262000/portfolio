@@ -11,7 +11,7 @@ $(function () {
     // ];
 
     const container = $('#bubble-container');
-    if (!container.length) return; 
+    if (!container.length) return;
     // 要素がないページでは実行しない
 
     // 画像の置き換え
@@ -19,13 +19,19 @@ $(function () {
     // カンマ区切りで書かれたパスを配列に変換する
     const rawImages = container.attr('data-images');
 
-    if (!rawImages) return; 
+    if (!rawImages) return;
     const imageUrls = rawImages.split(',');
 
     // --- 設定値 ---
     const minSpeed = 0.3;  // 最低速度
     const maxSpeed = 1.0;  // 最大速度
-    const baseArea = 1920 * 1080;
+
+
+// 固定値（1920*1080）ではなく、現在のブラウザの表示領域を基準にする
+    const baseWidth = $(window).width();  // 100vw相当のピクセル数
+    const baseHeight = $(window).height(); // 100vh相当のピクセル数
+    const baseArea = baseWidth * baseHeight;
+
     let bubbles = [];
 
     // ドラッグ管理用
@@ -49,7 +55,7 @@ $(function () {
             const containerW = container.width();
             const containerH = container.height();
             const currentArea = containerW * containerH;
-            
+
             let ratio = Math.min(1, Math.sqrt(currentArea / baseArea));
             if (ratio < 0.3) ratio = 0.3;
 
@@ -58,7 +64,7 @@ $(function () {
 
             const x = Math.random() * (containerW - width);
             const y = Math.random() * (containerH - height);
-            
+
             const speedX = getRandomSpeed();
             const speedY = getRandomSpeed();
 
@@ -102,7 +108,7 @@ $(function () {
 
                 const pageX = e.pageX || e.originalEvent.touches[0].pageX;
                 const pageY = e.pageY || e.originalEvent.touches[0].pageY;
-                
+
                 // コンテナに対する相対位置を計算
                 const containerOffset = container.offset();
                 offsetX = pageX - (bubbleObj.x + containerOffset.left);
@@ -118,7 +124,7 @@ $(function () {
         if (draggingBubble) {
             const pageX = e.pageX || (e.originalEvent.touches ? e.originalEvent.touches[0].pageX : 0);
             const pageY = e.pageY || (e.originalEvent.touches ? e.originalEvent.touches[0].pageY : 0);
-            
+
             const containerOffset = container.offset();
             draggingBubble.x = pageX - containerOffset.left - offsetX;
             draggingBubble.y = pageY - containerOffset.top - offsetY;
@@ -184,9 +190,9 @@ $(function () {
                     // めり込み防止
                     const overlap = minDistance - distance;
                     const nx = dx / distance; const ny = dy / distance;
-                    if(b1.isDragging) {
+                    if (b1.isDragging) {
                         b2.x += nx * overlap; b2.y += ny * overlap;
-                    } else if(b2.isDragging) {
+                    } else if (b2.isDragging) {
                         b1.x -= nx * overlap; b1.y -= ny * overlap;
                     } else {
                         b1.x -= nx * overlap / 2; b1.y -= ny * overlap / 2;
