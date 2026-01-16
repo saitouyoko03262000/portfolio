@@ -72,13 +72,25 @@ function loadHeader(...pageNames) {
             }
 
             // 受け取った引数の配列をループ（繰り返し）処理する
+            // pageNames.forEach(name => {
+            //     if (name) {
+            //         // 1. ナビゲーションへのカレントクラス付与
+            //         const currentLink = document.querySelector(`.nav-item-${name}`);
+            //         if (currentLink) {
+            //             currentLink.classList.add('current-page');
+            //         }
+            //     }
+            // });
+
             pageNames.forEach(name => {
                 if (name) {
-                    // 1. ナビゲーションへのカレントクラス付与
-                    const currentLink = document.querySelectorAll(`.nav-item-${name}`);
-                    if (currentLink) {
-                        currentLink.classList.add('current-page');
-                    }
+                    // 1. querySelectorAll で、当てはまる要素をすべて取得する
+                    const currentLinks = document.querySelectorAll(`.nav-item-${name}`);
+
+                    // 2. 見つかったすべての要素に対して current-page を付与する
+                    currentLinks.forEach(link => {
+                        link.classList.add('current-page');
+                    });
                 }
             });
 
