@@ -61,8 +61,8 @@ function initNav() {
 
 // 他の initNav などの処理はそのまま残しておく
 
-// 引数を2つ受け取れるように ( ) の中を書き換える
-function loadHeader(pageName, subPage) {
+// ...pageNames と書くことで、引数がいくつあっても pageNames という配列に格納されます
+function loadHeader(...pageNames) {
     fetch('/portfolio/common/header.html')
         .then(response => response.text())
         .then(data => {
@@ -71,22 +71,16 @@ function loadHeader(pageName, subPage) {
                 headerArea.innerHTML = data;
             }
 
-            // 1つ目の引数（worksなど）の処理
-            if (pageName) {
-                const currentLink = document.querySelector(`.nav-item-${pageName}`);
-                if (currentLink) {
-                    currentLink.classList.add('current-page');
+            // 受け取った引数の配列をループ（繰り返し）処理する
+            pageNames.forEach(name => {
+                if (name) {
+                    // 1. ナビゲーションへのカレントクラス付与
+                    const currentLink = document.querySelector(`.nav-item-${name}`);
+                    if (currentLink) {
+                        currentLink.classList.add('current-page');
+                    }
                 }
-            }
-
-            // 2つ目の引数（detailなど）があれば、headerにクラスをつける等の処理
-            if (subPage) {
-                const header = document.querySelector('.hide-header');
-                if (header) {
-                    header.classList.add(`is-${subPage}`); 
-                    // これで <header class="hide-header is-detail"> になります
-                }
-            }
+            });
 
             initNav();
             initGlitter();
