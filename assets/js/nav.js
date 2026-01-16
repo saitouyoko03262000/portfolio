@@ -75,7 +75,7 @@ function loadHeader(...pageNames) {
             pageNames.forEach(name => {
                 if (name) {
                     // 1. ナビゲーションへのカレントクラス付与
-                    const currentLink = document.querySelector(`.nav-item-${name}`);
+                    const currentLink = document.querySelectorAll(`.nav-item-${name}`);
                     if (currentLink) {
                         currentLink.classList.add('current-page');
                     }
