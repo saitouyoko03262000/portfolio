@@ -177,7 +177,7 @@ header a {
     padding-left: 1.875rem;
 }
 
-.drop-menu-list a.current-page{
+.drop-menu-list a.current-page::before{
     content: "";
 }
 

@@ -628,7 +628,7 @@ summary::-webkit-details-marker {
     }
 }
 
-@supports (interpolate-size: allow-keywords) {
+/* @supports (interpolate-size: allow-keywords) {
     :root {
         interpolate-size: allow-keywords;
     }
@@ -643,7 +643,7 @@ summary::-webkit-details-marker {
         height: 150px;
         overflow-y: scroll;
     }
-}
+} */
 
 .works-approach:has(summary:hover) {
     border: 3px solid var(--gold);
@@ -667,7 +667,18 @@ summary::-webkit-details-marker {
 }
 
 /* open */
-/* --- open（開いた時）のスタイル --- */
+/* openの時、ボタン以外の範囲は押せない */
+.works-approach[open]{
+    pointer-events: none;
+    cursor: default;
+}
+
+.works-approach-summary-button[open]{
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/*  */
 .works-approach[open],
 .works-approach[open]:has(summary:hover) {
     background-color: #ffffff;
