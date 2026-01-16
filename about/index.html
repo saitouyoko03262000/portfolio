@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kaku+Gothic+New&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Yomogi&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap"
         rel="stylesheet">
 
     <!-- css -->
@@ -45,7 +45,7 @@
 </head>
 
 <body>
-    <div class="about-page" id="wrapper">
+    <div class="lower about-page" id="wrapper">
         <div id="header"></div>
         <script>
             // ページ読み込み完了時に実行
@@ -62,34 +62,33 @@
                     data-images="/portfolio/assets/img/first-view-chaina.png, /portfolio/assets/img/first-view-korea.png, /portfolio/assets/img/first-view-camera-kodak.png, /portfolio/assets/img/first-view-stitch.png, /portfolio/assets/img/first-view-camera-nikon.png, /portfolio/assets/img/first-view-self.png">
 
                     <div class="lower-page-h1">
-                        <h1>私について</h1>
+                        <!-- テキストでの文字の縁どり・カラーでのblendが難しいためimg -->
+                        <h1><img src="/portfolio/assets/img/lower-h1-about.svg" width="318" height="68" alt="私について"></h1>
+                    </div>
+                </div>
+
+                <section class="about-section">
+                    <div class="about-img inview fadeIn_left">
+                        <img src="/portfolio/assets/img/about-self.png" width="962" height="734" alt="さいとうようこのプロフィール写真">
+                        <p><span>イラスト: 友人</span><span>友人 作</span></p>
                     </div>
 
-                </div>
-            </div>
+                    <div class="about-h-p-contains inview fadeIn_up">
+                        <div class="about-h-p">
+                            <h2 class="h2-decoration-set">
+                                <span class="h2-center">私について</span>
+                            </h2>
+                            <!-- <p>2000.3.26</p> -->
 
-            <section class="about-section">
-                <div class="about-img inview fadeIn_left">
-                    <img src="/portfolio/assets/img/about-self.png" width="962" height="734" alt="さいとうようこのプロフィール写真">
-                    <p><span>イラスト: 友人</span><span>友人 作</span></p>
-                </div>
-
-                <div class="about-h-p-contains inview fadeIn_up">
-                    <div class="about-h-p">
-                        <h2 class="h2-decoration-set">
-                            <span class="h2-center">私について</span>
-                        </h2>
-                        <!-- <p>2000.3.26</p> -->
-
-                        <!-- 詳しく見るボタン -->
-                        <div class="button-right">
-                            <a href="" class="box-small-button">
-                                <p>詳しく見る</p>
-                            </a>
+                            <!-- 詳しく見るボタン -->
+                            <div class="button-right">
+                                <a href="" class="box-small-button">
+                                    <p>詳しく見る</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
 
         </main>

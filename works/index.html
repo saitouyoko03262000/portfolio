@@ -17,11 +17,9 @@
     <link rel="icon" href="/portfolio/assets/img/favicon.svg" type="image/svg+xml">
 
     <!-- Google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Yomogi&family=Zen+Kaku+Gothic+New&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Yomogi&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- css -->
     <link href="/portfolio/assets/css/reset.css" rel="stylesheet">
@@ -45,12 +43,12 @@
 </head>
 
 <body>
-    <div class="works-page" id="wrapper">
+    <div class="lower works-page" id="wrapper">
         <div id="header"></div>
         <script>
             // ページ読み込み完了時に実行
             window.addEventListener('DOMContentLoaded', () => {
-                loadHeader('works');
+                loadHeader('works,list');
             });
         </script>
 
@@ -58,11 +56,13 @@
         <!-- first view -->
         <main>
             <div class="first-view shadow-min inview fadeIn">
+
                 <div id="bubble-container"
                     data-images="/portfolio/assets/img/first-view-chair-pc.png, /portfolio/assets/img/first-view-jewelry-pc.png, /portfolio/assets/img/first-view-museum-pc.png, /portfolio/assets/img/first-view-sauna-pc.png, /portfolio/assets/img/first-view-whiskey-pc.png, /portfolio/assets/img/first-view-whiskey-phone.png">
 
                     <div class="lower-page-h1">
-                        <h1>制作実績</h1>
+                        <!-- テキストでの文字の縁どり・カラーでのblendが難しいためimg -->
+                        <h1><img src="/portfolio/assets/img/lower-h1-works.svg"  width="265" height="72" alt="制作実績"></h1>
                     </div>
 
                 </div>
@@ -74,7 +74,7 @@
 
                     <div class="works-list">
                         <div>
-                            <a href="">
+                            <a href="/portfolio/works/works-detail/">
                                 <section class="works-overview shadow-min inview fadeIn_up">
                                     <div class="works-overview-area">
                                         <img src="/portfolio/assets/img/works-list-museum.png" width="781" height="491"
@@ -91,13 +91,13 @@
                                             </div>
                                         </div>
 
-                                        <h3>恐竜博物館の企画展</h3>
+                                        <h3>博物館の企画展</h3>
                                     </div>
                                 </section>
                             </a>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/portfolio/works/works-detail/">
                                 <section class="works-overview shadow-min inview fadeIn_up">
                                     <div class="works-overview-area">
                                         <img src="/portfolio/assets/img/works-list-sauna.png" width="781" height="491"
@@ -121,7 +121,7 @@
                             </a>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/portfolio/works/works-detail/">
                                 <section class="works-overview shadow-min inview fadeIn_up">
                                     <div class="works-overview-area">
                                         <img src="/portfolio/assets/img/works-list-whiskey.png" width="781" height="491"
@@ -145,11 +145,11 @@
                             </a>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/portfolio/works/works-detail/">
                                 <section class="works-overview shadow-min inview fadeIn_up">
                                     <div class="works-overview-area">
-                                        <img src="/portfolio/assets/img/works-list-jewelry-shop.png" width="781"
-                                            height="491" alt="ジュエリーショップのWEBサイト">
+                                        <img src="/portfolio/assets/img/works-list-jewelry-shop.png" width="781" height="491"
+                                            alt="ジュエリーショップのWEBサイト">
                                     </div>
 
                                     <div class="works-txt">
@@ -169,11 +169,11 @@
                             </a>
                         </div>
                         <div>
-                            <a href="">
+                            <a href="/portfolio/works/works-detail/">
                                 <section class="works-overview shadow-min inview fadeIn_up">
                                     <div class="works-overview-area">
-                                        <img src="/portfolio/assets/img/works-list-chair-shop.png" width="781"
-                                            height="491" alt="椅子販売店のWEBサイト">
+                                        <img src="/portfolio/assets/img/works-list-chair-shop.png" width="781" height="491"
+                                            alt="椅子販売店のWEBサイト">
                                     </div>
 
                                     <div class="works-txt">
@@ -196,7 +196,7 @@
 
                     <!-- 詳しく見るボタン -->
                     <div class="button-center inview fadeIn_up">
-                        <a href="" class="box-small-button">
+                        <a href="/portfolio/works/works-detail/" class="box-small-button">
                             <p>詳しく見る</p>
                         </a>
                     </div>

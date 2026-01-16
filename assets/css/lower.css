@@ -7,34 +7,40 @@
 /*     fist-view        */
 /* ******************** */
 
-.top-page .first-view #bubble-container{
+.first-view.shadow-min {
+    position: relative;
+    z-index: 20;
+}
+
+.top-page .first-view #bubble-container {
     height: 100vh;
 }
 
-:root{
+:root {
     --lower-page-height: 50vh;
 }
 
-.works-page .first-view #bubble-container,
-.about-page .first-view #bubble-container{
-    height: var(--lower-page-height);
-    background-color: var(--fv-bg);
-}
-
-.top-page #bubble-container{
+.top-page #bubble-container {
     height: 100vh;
     background-color: #ffffff;
 }
 
-.top-page #bubble-container{
+.top-page #bubble-container {
     display: flex;
     justify-content: space-between;
 }
 
+.lower-page-h1 h1 {
+    z-index: 30;
+}
+
+
 .lower-page-h1 {
     height: var(--lower-page-height);
     display: flex;
+    justify-content: center;
     align-items: center;
+    background-color: var(--fv-bg);
 
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -48,7 +54,7 @@
 #bubble-container {
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     pointer-events: none;
     overflow: hidden;
     z-index: 20;
@@ -285,10 +291,7 @@
 /*       works                      */
 /* ******************************** */
 
-/* 共有 about *************************************/
-
-
-
+/* 共有 works *************************************/
 :root {
     --works-list-div-width: 47%;
 }
@@ -316,7 +319,6 @@
     .works-list {
         gap: 7vw 0;
     }
-
 }
 
 .works-overview {
@@ -353,11 +355,11 @@
     transition: opacity 0.3s ease;
 }
 
-.works-meta {
+/* .works-meta {
     display: flex;
     align-items: center;
     gap: 2vw;
-}
+} */
 
 @media only screen and (min-width: 769px) and (max-width: 1024px),
 only screen and (max-width: 480px) {
@@ -380,6 +382,7 @@ only screen and (max-width: 480px) {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: fit-content;
 }
 
 .is-solo {
@@ -391,16 +394,326 @@ only screen and (max-width: 480px) {
 }
 
 .works-scope {
+    display: flex;
     white-space: nowrap;
 }
 
-.works-scope span:not(:last-child)::after {
+.works-scope li:not(:first-child) {
+    margin-left: 5%;
+}
+
+.works-scope li:not(:last-child)::after {
     content: "/";
-    margin: 0 2%;
+    margin: 0 5%;
+}
+
+/* top-page works *************************************/
+
+/* ******************************** */
+/*       works  detail              */
+/* ******************************** */
+.lower {
+    height: 2000px;
+}
+
+
+/* h2が下まで行かないようにする */
+:root {
+    --works-detail-stcky-container-height: 405px;
+    --fixed-top-height: 30px;
+}
+
+/* 固定要素とdetailsタグの空白*/
+.works-detail-section {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* h2と概要 */
+:root {
+    --works-details-h2-overview-gap: 10px;
+    --works-details-h2-overview-padding-bottom: 50px;
+}
+
+.works-details-h2-overview-set {
+    display: flex;
+    flex-direction: column;
+    gap: var(--works-details-h2-overview-gap);
+    position: sticky;
+    top: var(--fixed-top-height);
+    margin-bottom: var(--works-detail-stcky-container-height);
+    padding-bottom: var(--works-details-h2-overview-padding-bottom);
+}
+
+/* h2　概要 */
+.works-details-overview {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*  */
+.works-detail-stcky-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: calc(var(--works-detail-stcky-container-height) * -1);
 }
 
 
 
+:root {
+    --works-detail-img-width: 40%;
+    --works-detail-desc-width: calc(100% - var(--works-detail-img-width)- 6%);
+}
 
+/* 左　画像 */
 
-/* top-page about *************************************/
+.works-detail-img {
+    width: var(--works-detail-img-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    position: sticky;
+
+    /* + works-details-h2-overview-setの高さ */
+    top: calc(var(--fixed-top-height) + 83px + var(--works-details-h2-overview-gap) + var(--works-details-h2-overview-padding-bottom));
+}
+
+/* 右側 */
+.works-detail-desc {
+    width: var(--works-detail-desc-width);
+    height: 600px;
+    /* background-color: aqua; */
+}
+
+.works-detail-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.works-detail-meta>div {
+    display: flex;
+    align-items: flex-start;
+}
+
+:root {
+    --h3-box-padding: 12px;
+}
+
+.works-detail-meta dt {
+    font-family: var(--kaisei-decol);
+    font-size: var(--h3-small-size);
+    color: var(--gold);
+    line-height: 1;
+    width: fit-content;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    padding: var(--h3-box-padding);
+    border: 2px solid var(--gold);
+    margin-right: 40px;
+}
+
+.works-detail-meta dd {
+    margin-top: var(--h3-box-padding);
+    line-height: 1.5;
+}
+
+/* UX設計の考え方 アコーディオン機能*/
+
+/* 三角のアイコンを消す */
+summary {
+    display: block;
+    list-style-type: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+/* summury button */
+.works-approach h3 {
+    line-height: 1;
+}
+
+:root {
+    --works-approach-summary-button-width: 50px;
+    --works-approach-summary-bar-height: 7px;
+}
+
+.works-approach-summary-button {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--works-approach-summary-button-width);
+    height: var(--works-approach-summary-button-width);
+    border-radius: 50%;
+    background-color: #ffffff;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.works-approach-summary-button::before,
+.works-approach-summary-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: var(--works-approach-summary-bar-height);
+    border-radius: calc(var(--works-approach-summary-bar-height) / 2);
+    background-color: var(--gold);
+    z-index: 101;
+    transition: transform 0.3s ease;
+}
+
+.works-approach-summary-button::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* hover */
+.works-approach summary:hover .works-approach-summary-button {
+    background-color: var(--gold);
+    transition: background-color 0.3s,
+        transform 0.3s ease;
+}
+
+.works-approach summary:hover .works-approach-summary-button::before {
+    transform: translate(-50%, -50%) rotate(270deg);
+    transition: transform 0.3s ease;
+}
+
+.works-approach summary:hover .works-approach-summary-button::after {
+    transform: translate(-50%, -50%) rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.works-approach summary:hover .works-approach-summary-button::before,
+.works-approach summary:hover .works-approach-summary-button::after {
+    background-color: #ffffff;
+    transition: background-color 0.3s,
+        transform 0.3s ease;
+}
+
+/* UX設計の考え方 */
+.works-approach {
+    border: 3px solid #ffffff;
+    background-color: var(--gold);
+    border-radius: calc((var(--h3-size) + var(--works-approach-h3-padding) * 2) / 2);
+    transition:
+        background-color 0.4s ease,
+        border 0.4s ease,
+        border-radius 0.4s ease,
+        transform 0.4s ease;
+
+    &::details-content {
+        transition:
+            height 0.4s,
+            opacity 0.4s,
+            content-visibility 0.4s allow-discrete;
+        height: 0;
+        opacity: 0;
+        overflow: clip;
+    }
+
+    &[open]::details-content {
+        opacity: 1;
+    }
+}
+
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    details[open]::details-content {
+        height: auto;
+    }
+}
+
+@supports not (interpolate-size: allow-keywords) {
+    details[open]::details-content {
+        height: 150px;
+        overflow-y: scroll;
+    }
+}
+
+.works-approach:has(summary:hover) {
+    border: 3px solid var(--gold);
+    background-color: #ffffff;
+    transition:
+        background-color 0.3s,
+        border 0.3s,
+        transform 0.4s;
+}
+
+.works-approach h3 {
+    transition:
+        color 0.3s;
+}
+
+.works-approach summary:hover h3 {
+    color: var(--gold);
+    transition:
+        color 0.3s;
+
+}
+
+/* open */
+/* --- open（開いた時）のスタイル --- */
+.works-approach[open],
+.works-approach[open]:has(summary:hover) {
+    border-radius: 0;
+    border: transparent;
+    border-top: 3px dashed var(--gold);
+    border-bottom: 3px dashed var(--gold);
+    transition:
+        background-color 0.4s ease,
+        border 0.4s ease,
+        border-radius 0.4s ease;
+}
+
+.works-approach[open]:has(summary:hover) {
+    background-color: #ffffff;
+}
+
+.works-approach[open] h3 {
+    color: var(--gold);
+}
+
+.works-approach[open] .works-approach-summary-button {
+    background-color: var(--gold);
+}
+
+.works-approach[open] .works-approach-summary-button::before,
+.works-approach[open] .works-approach-summary-button::after {
+    background-color: #ffffff;
+}
+
+.works-approach[open] .works-approach-summary-button::before {
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+
+.works-approach[open] .works-approach-summary-button::after {
+    transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.works-approach[open] summary:hover .works-approach-summary-button::before {
+    transform: translate(-50%, -50%) rotate(405deg);
+}
+
+.works-approach[open] summary:hover .works-approach-summary-button::after {
+    transform: translate(-50%, -50%) rotate(315deg);
+}
