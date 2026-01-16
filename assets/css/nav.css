@@ -177,11 +177,30 @@ header a {
     padding-left: 1.875rem;
 }
 
-.drop-menu-list a.current-page::before{
-    content: "";
-    margin-right: -1.875rem;
+/* currentの時の::before */
+/* 1. aタグ自体の設定 */
+.drop-menu-list a.current-page {
+    width: 0;
+    padding-left: 0;
+    overflow: visible;
+    white-space: nowrap;
+    display: inline-block;
 }
 
+.drop-menu-list a.current-page::before {
+    content: "";
+    display: inline-block;
+    width: 1.875rem;
+    aspect-ratio: 1/1;
+    background-image: url('../img/current.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    position: relative;
+    left: 0;
+}
+
+/*  */
 .drop-menu-list a::before {
     content: "-";
     position: absolute;
@@ -404,7 +423,7 @@ header a {
 }
 
 /* drop-menu > a hover */
-.drop-menu > a:before{
+.drop-menu>a:before {
     content: "";
     display: inline-block;
     width: 1.875rem;
@@ -414,7 +433,7 @@ header a {
 }
 
 .drop-menu:has(.drop-menu-list-dg:hover)>a::before,
-.drop-menu > a:hover::before{
+.drop-menu>a:hover::before {
     aspect-ratio: 10 / 10;
     background-image: url('../img/current-hover.svg');
     background-size: contain;
