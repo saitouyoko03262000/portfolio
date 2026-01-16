@@ -482,6 +482,7 @@ only screen and (max-width: 480px) {
 /* 右側 */
 .works-detail-desc {
     width: var(--works-detail-desc-width);
+    height: 600px;
 }
 
 .works-detail-meta {
