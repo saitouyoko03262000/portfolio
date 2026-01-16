@@ -178,13 +178,13 @@ header a {
 }
 
 /* currentの時の::before */
-/* 1. aタグ自体の設定 */
 .drop-menu-list a.current-page {
-    width: 0;
-    padding-left: 0;
+    /* width: 0; */
+    padding-left: 1.875rem;
     overflow: visible;
+    margin: 0;
     white-space: nowrap;
-    display: inline-block;
+    position: relative;
 }
 
 .drop-menu-list a.current-page::before {
@@ -195,12 +195,28 @@ header a {
     background-image: url('../img/current.svg');
     background-size: contain;
     background-repeat: no-repeat;
-
+    margin-left: -1.875rem;
     position: relative;
     left: 0;
+    margin: 0;
+    margin-right: 3px;
+    vertical-align: middle;
 }
 
 /*  */
+/* .current-page::before {
+    content: "";
+    display: inline-block;
+    width: 1.875rem;
+    aspect-ratio: 10 / 10;
+    background-image: url('../img/current.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: -1.875rem;
+    margin-right: 3px;
+    vertical-align: middle;
+} */
+
 .drop-menu-list a::before {
     content: "-";
     position: absolute;
