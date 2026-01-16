@@ -179,7 +179,7 @@ header a {
 
 .drop-menu-list a.current-page::before{
     content: "";
-    width: 0px;
+    margin-right: -1.875rem;
 }
 
 .drop-menu-list a::before {
