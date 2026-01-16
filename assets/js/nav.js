@@ -71,17 +71,6 @@ function loadHeader(...pageNames) {
                 headerArea.innerHTML = data;
             }
 
-            // 受け取った引数の配列をループ（繰り返し）処理する
-            // pageNames.forEach(name => {
-            //     if (name) {
-            //         // 1. ナビゲーションへのカレントクラス付与
-            //         const currentLink = document.querySelector(`.nav-item-${name}`);
-            //         if (currentLink) {
-            //             currentLink.classList.add('current-page');
-            //         }
-            //     }
-            // });
-
             pageNames.forEach(name => {
                 if (name) {
                     // 1. querySelectorAll で、当てはまる要素をすべて取得する
@@ -100,30 +89,5 @@ function loadHeader(...pageNames) {
         .catch(error => console.error('Error:', error));
 }
 
-// function loadHeader(pageName) {
-//     // パスはご自身の環境（/portfolio/common/header.htmlなど）に合わせてください
-//     fetch('/portfolio/common/header.html')
-//         .then(response => response.text())
-//         .then(data => {
-//             // 1. HTMLを挿入
-//             const headerArea = document.getElementById('header');
-//             if (headerArea) {
-//                 headerArea.innerHTML = data;
-//             }
-
-//             // 2. current機能（現在地の判定）
-//             if (pageName) {
-//                 const currentLink = document.querySelector(`.nav-item-${pageName}`);
-//                 if (currentLink) {
-//                     currentLink.classList.add('current-page');
-//                 }
-//             }
-
-//             // 3. 外部機能の起動（fetchが終わった後に行う）
-//             initNav();      // ハンバーガーメニューなど
-//             initGlitter();  // ★キラキラ機能をここで呼ぶ！
-//         })
-//         .catch(error => console.error('Error loading header:', error));
-// }
 
 
