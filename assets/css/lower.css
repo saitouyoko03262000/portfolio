@@ -412,10 +412,6 @@ only screen and (max-width: 480px) {
 /* ******************************** */
 /*       works  detail              */
 /* ******************************** */
-.lower {
-    height: 2000px;
-}
-
 
 /* h2が下まで行かないようにする */
 :root {
@@ -486,8 +482,6 @@ only screen and (max-width: 480px) {
 /* 右側 */
 .works-detail-desc {
     width: var(--works-detail-desc-width);
-    height: 600px;
-    /* background-color: aqua; */
 }
 
 .works-detail-meta {
