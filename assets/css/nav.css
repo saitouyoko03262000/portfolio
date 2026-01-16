@@ -177,6 +177,10 @@ header a {
     padding-left: 1.875rem;
 }
 
+.drop-menu-list a.current-page{
+    content: "";
+}
+
 .drop-menu-list a::before {
     content: "-";
     position: absolute;
