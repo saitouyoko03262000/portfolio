@@ -228,6 +228,7 @@ h2 {
 .works-page-count{
     font-family: var(--kaisei-decol);
     color: var(--dark-gold);
+    font-weight: bold;
 }
 
 :root{

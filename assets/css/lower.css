@@ -375,16 +375,18 @@ only screen and (max-width: 480px) {
     }
 }
 
+
+/*===========================*/
+/* プロジェクトの規模（アイコン） */
+/*===========================*/
+/* 共通クラス */
 .works-label {
-    height: 1.875rem;
-    padding: 0 .625rem;
+    padding: .5rem .625rem;
     border-radius: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: fit-content;
 }
 
+/* 付属クラス */
 .is-solo {
     background-color: var(--pink);
 }
@@ -393,6 +395,9 @@ only screen and (max-width: 480px) {
     background-color: var(--orange);
 }
 
+/*===========================*/
+/* 担当箇所 範囲               */
+/*===========================*/
 .works-scope {
     display: flex;
     white-space: nowrap;
@@ -409,17 +414,17 @@ only screen and (max-width: 480px) {
 
 /* top-page works *************************************/
 
-/* ******************************** */
-/*       works  detail              */
-/* ******************************** */
+/* ************************************** */
+/*       works  detail  page              */
+/* ************************************** */
 
-/* h2が下まで行かないようにする */
+/* h2がsticky終わりに下の要素と重ならないようにする */
 :root {
     --works-detail-stcky-container-height: 405px;
     --fixed-top-height: 30px;
 }
 
-/* 固定要素とdetailsタグの空白*/
+/* styickyとdetailsタグ（アコーディオン）の空白*/
 .works-detail-section {
     display: flex;
     flex-direction: column;
@@ -442,15 +447,16 @@ only screen and (max-width: 480px) {
     padding-bottom: var(--works-details-h2-overview-padding-bottom);
 }
 
-/* h2　概要 */
+/* h2と概要 */
 .works-details-overview {
-    width: 400px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
+    gap: 3%;
+    margin-left: var(--h2-decoration-width);
 }
 
-/*  */
+/* 左（img　sticky）右(スクロール) の塊 */
 .works-detail-stcky-container {
     display: flex;
     align-items: flex-start;
@@ -458,11 +464,9 @@ only screen and (max-width: 480px) {
     margin-top: calc(var(--works-detail-stcky-container-height) * -1);
 }
 
-
-
 :root {
     --works-detail-img-width: 40%;
-    --works-detail-desc-width: calc(100% - var(--works-detail-img-width)- 6%);
+    --works-detail-desc-width: calc(100% - var(--works-detail-img-width) - 5%);
 }
 
 /* 左　画像 */
@@ -479,6 +483,28 @@ only screen and (max-width: 480px) {
     top: calc(var(--fixed-top-height) + 83px + var(--works-details-h2-overview-gap) + var(--works-details-h2-overview-padding-bottom));
 }
 
+@media only screen and (max-width: 1024px) {
+    /* stickyの解除 */
+    .works-details-h2-overview-set,
+    .works-detail-img {
+        position: static;
+    }
+
+    /* dfの解除 */
+    .works-detail-stcky-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    :root {
+        --works-detail-img-width: 80%;
+        --works-detail-desc-width: 100%;
+    }
+}
+
+
 /* 右側 */
 .works-detail-desc {
     width: var(--works-detail-desc-width);
@@ -493,7 +519,9 @@ only screen and (max-width: 480px) {
 
 .works-detail-meta>div {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
+    gap: 5%;
 }
 
 :root {
@@ -510,16 +538,30 @@ only screen and (max-width: 480px) {
     border-radius: .5rem;
     padding: var(--h3-box-padding);
     border: 2px solid var(--gold);
-    margin-right: 40px;
+    /* margin-right: 3%; */
+    width: fit-content;
 }
 
 .works-detail-meta dd {
-    margin-top: var(--h3-box-padding);
-    line-height: 1.5;
+    margin-top: calc(var(--h3-box-padding) + 1px - 2px);
+    line-height: calc(1em + 4px);
+    /* line-height: 1; */
+    width: fit-content;
 }
 
-/* UX設計の考え方 アコーディオン機能*/
 
+.works-detail-meta span {
+    display: inline-block;
+}
+
+.works-detail-meta span:not(:last-child) {
+    margin-bottom: 5px;
+
+}
+
+/* ================================= */
+/*   UX設計の考え方 アコーディオン機能    */
+/* ================================= */
 /* 三角のアイコンを消す */
 summary {
     display: block;
@@ -628,7 +670,7 @@ summary::-webkit-details-marker {
     }
 }
 
-/* @supports (interpolate-size: allow-keywords) {
+@supports (interpolate-size: allow-keywords) {
     :root {
         interpolate-size: allow-keywords;
     }
@@ -640,10 +682,10 @@ summary::-webkit-details-marker {
 
 @supports not (interpolate-size: allow-keywords) {
     details[open]::details-content {
-        height: 150px;
+        height: 90vh;
         overflow-y: scroll;
     }
-} */
+}
 
 .works-approach:has(summary:hover) {
     border: 3px solid var(--gold);
@@ -668,12 +710,12 @@ summary::-webkit-details-marker {
 
 /* open */
 /* openの時、ボタン以外の範囲は押せない */
-.works-approach[open]{
+.works-approach[open] {
     pointer-events: none;
     cursor: default;
 }
 
-.works-approach-summary-button[open]{
+.works-approach[open] .works-approach-summary-button {
     pointer-events: auto;
     cursor: pointer;
 }

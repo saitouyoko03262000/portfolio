@@ -179,8 +179,6 @@ header a {
 
 /* currentの時の::before */
 .drop-menu-list a.current-page {
-    /* width: 0; */
-    /* padding-left: 1.875rem; */
     overflow: visible;
     margin: 0;
     white-space: nowrap;
@@ -208,19 +206,6 @@ header a {
 }
 
 /*  */
-/* .current-page::before {
-    content: "";
-    display: inline-block;
-    width: 1.875rem;
-    aspect-ratio: 10 / 10;
-    background-image: url('../img/current.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-left: -1.875rem;
-    margin-right: 3px;
-    vertical-align: middle;
-} */
-
 .drop-menu-list a::before {
     content: "-";
     position: absolute;
@@ -555,7 +540,7 @@ footer small {
     pointer-events: none;
 }
 
-/* キラキラが発生するアニメーション */
+/* キラキラ */
 @keyframes glitter {
     0% {
         transform: scale(0);
