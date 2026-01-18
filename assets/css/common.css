@@ -27,7 +27,6 @@ img {
 /*        影　　        */
 /* ******************** */
 
-
 .shadow-min {
     box-shadow: 0.2rem 0.2rem 1rem 0rem #77777725,
         inset -0.2rem -0.2rem 0.4rem 0 rgba(204, 223, 228, 0.05),
@@ -48,7 +47,7 @@ img {
     padding: var(--section-padding-t-b) 0;
 }
 
-.works-section>div  {
+.works-section>div {
     width: 80%;
     margin: 0 auto;
     display: flex;
@@ -56,7 +55,7 @@ img {
     gap: 5.2vw;
 }
 
-.works-detail-section>div{
+.works-detail-section {
     width: 80%;
     margin: 0 auto;
 }
@@ -74,6 +73,13 @@ img {
 /*  ** font *************************** */
 
 :root {
+    /*  */
+    --shadow-min: 0.2rem 0.2rem 1rem 0rem #77777725,
+        inset -0.2rem -0.2rem 0.4rem 0 rgba(204, 223, 228, 0.05),
+        inset 0.1rem 0.1rem 0.9rem 0 rgba(255, 255, 255, 0.25);
+
+
+
     /* font color */
     --gold: #d6af00;
     --dark-gold: #c6b35f;
@@ -127,7 +133,7 @@ h2 {
     line-height: 1;
 }
 
-:root{
+:root {
     --h2-decoration-width: clamp(2.5rem, 1.988rem + 2.56vw, 5.063rem);
 }
 
@@ -202,7 +208,7 @@ h2 {
 
 /* 本文 */
 
-.works-detail-desc{
+.works-detail-desc {
     font-family: var(--zen-kaku-gothic);
     font-size: var(--txt-size);
     color: var(--black);
@@ -225,17 +231,17 @@ h2 {
     color: #ffff;
 }
 
-.works-page-count{
+.works-page-count {
     font-family: var(--kaisei-decol);
     color: var(--dark-gold);
     font-weight: bold;
 }
 
-:root{
+:root {
     --works-approach-h3-padding: 20px;
 }
 
-.works-approach h3{
+.works-approach h3 {
     font-family: var(--kaisei-decol);
     color: #ffffff;
     font-size: var(--h3-size);
