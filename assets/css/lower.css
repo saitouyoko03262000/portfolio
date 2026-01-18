@@ -676,17 +676,17 @@ only screen and (max-width: 480px) {
 
 /* 各色 */
 
-.jewelyr-blue::after{
+.jewelyr-blue::after {
     background-color: #4D93AD;
 }
 
-.jewelyr-black::after{
+.jewelyr-black::after {
     background-color: #282828;
 }
 
-.jewelyr-font{
-font-family: "メイリオ", Meiryo, sans-serif;
-font-weight: bold;
+.jewelyr-font {
+    font-family: "メイリオ", Meiryo, sans-serif;
+    font-weight: bold;
 }
 
 /* ====================================== */
@@ -705,12 +705,6 @@ font-weight: bold;
     margin-top: -18px;
     margin-bottom: -10px;
     z-index: 50;
-}
-
-@media only screen and (max-width: 480px) {
-    .arrows {
-    display: none;
-    }
 }
 
 :root {
@@ -826,8 +820,11 @@ font-weight: bold;
     scale: -1 1;
 }
 
-
-
+@media only screen and (max-width: 480px) {
+    .arrows {
+        display: none !important;
+    }
+}
 
 
 /* ================================= */
