@@ -55,7 +55,7 @@ img {
     gap: 5.2vw;
 }
 
-.works-detail-section {
+.works-detail-section > div{
     width: 80%;
     margin: 0 auto;
 }
@@ -208,6 +208,8 @@ h2 {
 
 /* 本文 */
 
+
+.border-box p,
 .works-detail-desc {
     font-family: var(--zen-kaku-gothic);
     font-size: var(--txt-size);
@@ -244,7 +246,7 @@ h2 {
 .works-approach h3 {
     font-family: var(--kaisei-decol);
     color: #ffffff;
-    font-size: var(--h3-size);
+    font-size: clamp(1.125rem, 0.85rem + 1.38vw, 2.5rem);
     text-align: center;
     padding: var(--works-approach-h3-padding) 0;
 }

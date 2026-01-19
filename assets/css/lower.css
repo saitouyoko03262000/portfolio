@@ -85,14 +85,17 @@
     scroll-behavior: smooth;
 } */
 
+.first-view .scroll-down {
+    mix-blend-mode: difference;
+    height: 100vh;
+}
+
 .scroll-down {
     position: relative;
-    height: 100vh;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 30;
-    mix-blend-mode: difference;
 }
 
 .scroll-down:after {
@@ -420,7 +423,7 @@ only screen and (max-width: 480px) {
 
 /* h2がsticky終わりに下の要素と重ならないようにする */
 :root {
-    --works-detail-stcky-container-height: 405px;
+    --works-detail-sticky-container-height: 405px;
     --fixed-top-height: 30px;
 }
 
@@ -443,7 +446,7 @@ only screen and (max-width: 480px) {
     gap: var(--works-details-h2-overview-gap);
     position: sticky;
     top: var(--fixed-top-height);
-    margin-bottom: var(--works-detail-stcky-container-height);
+    margin-bottom: var(--works-detail-sticky-container-height);
     padding-bottom: var(--works-details-h2-overview-padding-bottom);
 }
 
@@ -457,11 +460,11 @@ only screen and (max-width: 480px) {
 }
 
 /* 左（img　sticky）右(スクロール) の塊 */
-.works-detail-stcky-container {
+.works-detail-sticky-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    margin-top: calc(var(--works-detail-stcky-container-height) * -1);
+    margin-top: calc(var(--works-detail-sticky-container-height) * -1);
 }
 
 :root {
@@ -483,6 +486,17 @@ only screen and (max-width: 480px) {
     top: calc(var(--fixed-top-height) + 83px + var(--works-details-h2-overview-gap) + var(--works-details-h2-overview-padding-bottom));
 }
 
+.works-detail-img>div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.works-detail-img>div>img {
+    position: relative;
+}
+
 @media only screen and (max-width: 1024px) {
 
     /* stickyの解除 */
@@ -492,7 +506,7 @@ only screen and (max-width: 480px) {
     }
 
     /* dfの解除 */
-    .works-detail-stcky-container {
+    .works-detail-sticky-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -502,6 +516,114 @@ only screen and (max-width: 480px) {
     :root {
         --works-detail-img-width: 80%;
         --works-detail-desc-width: 100%;
+    }
+}
+
+/* スクロールアニメーション */
+.works-detail-img .scroll-down {
+    left: 0;
+    transform: translateX(-1em);
+    position: absolute;
+}
+
+.works-detail-img .scroll-down span {
+    position: static;
+    color: var(--dark-gold);
+    font-size: 15px;
+}
+
+.scroll-down:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+}
+
+.scroll-down span {
+    pointer-events: auto;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    width: 1.8rem;
+    padding: .625rem .625rem 6.875rem;
+
+    font-size: 1.25rem;
+    font-family: var(--yomogi);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+    transition: .2s;
+    margin: auto;
+}
+
+.scroll-down span:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    height: 6.25rem;
+    background: #ddd;
+}
+
+.scroll-down span:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    height: 6.25rem;
+    background: var(--dark-gold);
+}
+
+.scroll-down span:after {
+    animation: scroll-down-ani 1.5s cubic-bezier(1, 0, 0, 1) infinite;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .scroll-down span {
+        padding: 0 .625rem;
+    }
+
+    .scroll-down span:before {
+        top: 0;
+        left: 50%;
+    }
+
+    .scroll-down span:after {
+        top: 0;
+        left: 50%;
+    }
+}
+
+
+
+/* ================================= */
+/*   inner scroll                    */
+/* ================================= */
+
+.sample-page-scoll {
+    overflow-y: scroll;
+    width: 82%;
+    height: 16.35vw;
+    background-color: #4d93ad43;
+    position: absolute;
+    top: 0.989vw;
+    left: 50%;
+    transform: translateX(-50.7%);
+}
+
+@media only screen and (max-width: 1024px) {
+    .sample-page-scoll {
+        height: 33vw;
+        top: 1.95vw;
     }
 }
 
@@ -533,7 +655,8 @@ only screen and (max-width: 480px) {
 }
 
 .design-logic-flow dt,
-.works-detail-meta dt {
+.works-detail-meta dt,
+.ui-design h4 {
     font-family: var(--kaisei-decol);
     font-size: var(--h3-small-size);
     color: var(--gold);
@@ -615,7 +738,7 @@ only screen and (max-width: 480px) {
 
 @media only screen and (max-width: 480px) {
     .design-logic-flow {
-        gap: 10px;
+        gap: 30px;
     }
 
     .design-logic-flow {
@@ -641,7 +764,6 @@ only screen and (max-width: 480px) {
         flex-direction: row;
         justify-content: flex-start;
         padding: 0;
-        /* box-sizing: border-box; */
     }
 
     .design-logic-flow dd>span {
@@ -653,6 +775,10 @@ only screen and (max-width: 480px) {
     .design-logic-flow dd>span:last-child {
         width: fit-content;
         text-align: left;
+    }
+
+    .design-logic-flow .design-logic-flow-desc:last-child {
+        display: none;
     }
 }
 
@@ -676,15 +802,20 @@ only screen and (max-width: 480px) {
 
 /* 各色 */
 
-.jewelyr-blue::after {
-    background-color: #4D93AD;
+:root {
+    --jewelry-blue: #4D93AD;
+    --jewelry-black: #282828;
 }
 
-.jewelyr-black::after {
-    background-color: #282828;
+.jewelry-blue::after {
+    background-color: var(--jewelry-blue);
 }
 
-.jewelyr-font {
+.jewelry-black::after {
+    background-color: var(--jewelry-black);
+}
+
+.jewelry-font {
     font-family: "メイリオ", Meiryo, sans-serif;
     font-weight: bold;
 }
@@ -827,6 +958,7 @@ only screen and (max-width: 480px) {
 }
 
 
+
 /* ================================= */
 /*   UX設計の考え方 アコーディオン機能    */
 /* ================================= */
@@ -851,14 +983,14 @@ summary::-webkit-details-marker {
 }
 
 :root {
-    --works-approach-summary-button-width: 50px;
-    --works-approach-summary-bar-height: 7px;
+    --works-approach-summary-button-width: clamp(1.875rem, 1.625rem + 1.25vw, 3.125rem);
+    --works-approach-summary-bar-height: clamp(.313rem, .287rem + 0.13vw, .438rem);
 }
 
 .works-approach-summary-button {
     content: "";
     position: absolute;
-    right: 10px;
+    right: .625rem;
     top: 50%;
     transform: translateY(-50%);
     width: var(--works-approach-summary-button-width);
@@ -956,7 +1088,7 @@ summary::-webkit-details-marker {
 }
 
 .works-approach:has(summary:hover) {
-    border: 3px solid var(--gold);
+    border: .1875rem solid var(--gold);
     background-color: #ffffff;
     transition:
         background-color 0.3s,
@@ -983,6 +1115,15 @@ summary::-webkit-details-marker {
     cursor: default;
 }
 
+.works-approach[open] summary {
+    justify-content: flex-start;
+    margin-left: .625rem;
+    justify-content: flex-start;
+    height: 5rem;
+    align-items: flex-start;
+    padding-top: 1.875rem;
+}
+
 .works-approach[open] .works-approach-summary-button {
     pointer-events: auto;
     cursor: pointer;
@@ -994,8 +1135,8 @@ summary::-webkit-details-marker {
     background-color: #ffffff;
     border-radius: 0;
     border: transparent;
-    border-top: 3px dashed var(--gold);
-    border-bottom: 3px dashed var(--gold);
+    border-top: .1875rem dashed var(--gold);
+    border-bottom: .1875rem dashed var(--gold);
     transition:
         background-color 0.4s ease,
         border 0.4s ease,
@@ -1004,10 +1145,14 @@ summary::-webkit-details-marker {
 
 .works-approach[open] h3 {
     color: var(--gold);
+    margin-top: .9375rem;
+    transition: margin-top 0.4s ease;
 }
 
 .works-approach[open] .works-approach-summary-button {
     background-color: var(--gold);
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .works-approach[open] .works-approach-summary-button::before,
@@ -1029,4 +1174,222 @@ summary::-webkit-details-marker {
 
 .works-approach[open] summary:hover .works-approach-summary-button::after {
     transform: translate(-50%, -50%) rotate(315deg);
+}
+
+
+/* detailの内容 */
+
+.details-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 5rem .625rem;
+}
+
+.details-about-design {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.details-about-design>div {
+    width: 45%;
+}
+
+@media only screen and (max-width: 768px) {
+.details-about-design {
+        flex-direction: column;
+        gap: 4.375rem;
+    }
+
+.details-about-design>div {
+        width: 100%;
+    }
+}
+
+/* ユーザーの不安と設計 */
+.ux-design {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.border-box {
+    position: relative;
+    margin: 0.5em 0 0 0;
+    padding: 2em 1.5em;
+    border: solid .125rem var(--gold);
+    border-radius: .9375rem;
+}
+
+.border-box h4 {
+    position: absolute;
+    display: inline-block;
+    top: -0.8125rem;
+    left: .8125rem;
+    padding: 0 .5625rem;
+    line-height: 1;
+    font-family: var(--kaisei-decol);
+    font-size: var(--txt-size);
+    background: #ffffff;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* ユーザーの不安　矢印 */
+.bold-arrow {
+    width: calc(50% + .625rem);
+    height: 1.875rem;
+    border-right: 1.25rem solid var(--dark-gold);
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.bold-arrow::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-right: 1.25rem solid transparent;
+    border-left: 1.25rem solid transparent;
+    border-top: 1.875rem solid var(--dark-gold);
+    border-bottom: 0;
+    position: absolute;
+    bottom: -1.25rem;
+    right: -1.875rem;
+}
+
+/* detailの右 */
+.ui-design {
+    display: flex;
+    flex-direction: column;
+    gap: 4.375rem;
+}
+
+.ui-design>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.design-desc>div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .1875rem;
+}
+
+.design-desc p:first-child {
+    font-weight: bold;
+}
+
+.design-desc p:last-child::before {
+    content: "...";
+    margin-right: 0.1em;
+}
+
+.color-sample {
+    display: flex;
+    gap: .625rem;
+}
+
+.color-sample>div {
+    width: 6.875rem;
+    height: 4.375rem;
+    border-radius: .9375rem;
+    position: relative;
+}
+
+.color-sample>div::after {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+    color: #ffffff;
+    position: absolute;
+    bottom: .1875rem;
+    right: .5rem;
+}
+
+/* 文字 */
+.font-design-desc span {
+    font-size: 3.125rem;
+    color: var(--gray);
+    /* font-family: Impact, 'Arial Narrow Bold', sans-serif; */
+}
+
+.font-desc-large {
+    font-size: 60px;
+}
+
+.font-design-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+
+
+/* ========================== */
+/*    各サイト別　設定           */
+/* ========================== */
+.web-jewelry .color-sample>div:first-child {
+    background-color: var(--jewelry-blue);
+}
+
+.web-jewelry .color-sample>div:first-child::after {
+    content: "#4D93AD";
+}
+
+.web-jewelry .color-sample>div:last-child {
+    background-color: var(--jewelry-black);
+}
+
+.web-jewelry .color-sample>div:last-child::after {
+    content: "#282828";
+}
+
+.web-jewelry .design-desc:first-child>span {
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+}
+
+.web-jewelry .design-desc:last-child>span {
+    font-family: "メイリオ", "Meiryo", sans-serif;
+}
+
+
+/* ======================== */
+/*    web page pick up      */
+/* ======================== */
+.pick-up-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.pick-up-page h4 {
+    font-family: var(--kaisei-decol);
+    font-size: var(--h3-size);
+    color: var(--gold);
+}
+
+.page-name-img-set {
+    max-width: 26.25rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+.page-name-img-set p {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+    color: var(--gray);
+}
+
+.page-name-img {
+    display: flex;
+    gap: 3.125rem;
+}
+
+.page-name-img>div {
+    width: 40%;
 }
