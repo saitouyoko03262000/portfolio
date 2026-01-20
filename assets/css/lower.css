@@ -1198,12 +1198,12 @@ summary::-webkit-details-marker {
 }
 
 @media only screen and (max-width: 768px) {
-.details-about-design {
+    .details-about-design {
         flex-direction: column;
         gap: 4.375rem;
     }
 
-.details-about-design>div {
+    .details-about-design>div {
         width: 100%;
     }
 }
@@ -1393,3 +1393,331 @@ summary::-webkit-details-marker {
 .page-name-img>div {
     width: 40%;
 }
+
+/* ************************************** */
+/*      about  page   　　　　　　           */
+/* ************************************** */
+.strengths-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.understand-needs-flow-repeat-set,
+.strengths-container>div {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.strengths-container h3 {
+    font-family: var(--kaisei-decol);
+    font-size: var(--h3-size);
+    color: var(--gold);
+    line-height: 1;
+}
+
+.strengths-h3-img {
+    /* max-width: 300px; */
+    width: 30%;
+    /* width: 25%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.strengths-h3-img img {
+    width: 75%;
+}
+
+/* ＋　＝ */
+.relation-mark {
+    font-size: var(--h3-size);
+    width: 5%;
+    height: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.pulas,
+.equal {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.pulas::before,
+.pulas::after,
+.equal::before,
+.equal::after {
+    content: "";
+    border-radius: 2px;
+    background-color: var(--light-gold);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.pulas::before {
+    width: 4px;
+    height: 100%;
+    transform: translate(-50%, -50%);
+}
+
+.pulas::after {
+    width: 100%;
+    height: 4px;
+    transform: translate(-50%, -50%);
+}
+
+.equal::before,
+.equal::after {
+    width: 100%;
+    height: 4px;
+}
+
+.equal::before {
+    transform: translate(-50%, calc(-50% - clamp(0.25rem, 0.175rem + 0.38vw, 0.625rem)));
+}
+
+.equal::after {
+    transform: translate(-50%, calc(-50% + clamp(0.25rem, 0.175rem + 0.38vw, 0.625rem)));
+}
+
+.strengths-arrow.bold-arrow {
+    width: 50%;
+    display: none;
+    margin-right: calc(50% - 10px);
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .strengths-container>div {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 0;
+    }
+
+    .relation-mark:has(.equal) {
+        display: none;
+    }
+
+    .strengths-h3-img {
+        width: 47%;
+    }
+
+    .relation-mark {
+        width: 6%;
+    }
+
+    .strengths-arrow.bold-arrow {
+        display: block;
+    }
+
+}
+
+/* 強み　図 */
+.understand-needs-flow {
+    display: flex;
+    align-items: flex-end;
+}
+
+.understand-needs-flow-repeat-set {
+    position: relative;
+}
+
+.repeat-img {
+    width: 20%;
+    height: auto;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.repeat-img p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    z-index: 10;
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--font-18px);
+    color: #ffffff;
+}
+
+.repeat-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+:root {
+    --strengths-flow-bg: #919191;
+}
+
+.understand-needs-flow-item {
+    width: 25%;
+    background-color: var(--strengths-flow-bg);
+    border: 1px solid #ffffff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* .understand-needs-flow-item >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+} */
+
+.understand-needs-flow-item:nth-child(2) {
+    border-radius: 15px 0 0 0;
+}
+
+.understand-needs-flow-item:nth-child(3) {
+    border-radius: 15px 0 0 0;
+}
+
+.understand-needs-flow-item:first-child {
+    border-radius: 15px 0 0 15px;
+}
+
+.understand-needs-flow-item:last-child {
+    border-radius: 15px 15px 15px 0;
+}
+
+.understand-needs-flow-item p:first-child,
+.understand-needs-flow-item p:nth-child(2) {
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--txt-size);
+}
+
+.understand-needs-flow-item p:first-child {
+    margin-top: calc(-0.5em - 15px);
+    width: 90%;
+    background: #ffffff;
+    color: var(--strengths-flow-bg);
+    border: 2px solid var(--strengths-flow-bg);
+    border-radius: 10px;
+    padding: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.understand-needs-flow-item p:nth-child(2) {
+    color: #ffffff;
+}
+
+.understand-needs-flow-item-img {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.understand-needs-flow-item img {
+    max-width: 90px;
+    width: 30%;
+    height: auto;
+}
+
+:root {
+    --understand-needs-flow-item-height: 210px;
+}
+
+.understand-needs-flow-item:nth-child(1) {
+    height: var(--understand-needs-flow-item-height);
+}
+
+.understand-needs-flow-item:nth-child(2) {
+    height: calc(var(--understand-needs-flow-item-height) + 40px);
+}
+
+.understand-needs-flow-item:nth-child(3) {
+    height: calc(var(--understand-needs-flow-item-height) + 80px);
+}
+
+.understand-needs-flow-item:nth-child(4) {
+    height: calc(var(--understand-needs-flow-item-height) + 120px);
+}
+
+@media only screen and (max-width: 768px) {
+    .strengths-h3-img {}
+
+    .understand-needs-flow-repeat-set {
+        display: none;
+    }
+
+    /* .understand-needs-flow {
+        display: block;
+        width: 100%;
+    }
+
+    .understand-needs-flow-item {
+        align-items: flex-start;
+    }
+
+
+
+    .understand-needs-flow-item p:first-child {
+        margin-top: 0;
+        width: fit-content;
+        background: var(--strengths-flow-bg);
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        border-radius: 10px;
+        padding: 6px 10px;
+        text-align: center;
+    }
+
+    .understand-needs-flow-item-img {
+        width: 100%;
+        height: auto;
+        justify-content: flex-end;
+        flex-grow: 0;
+    }
+
+    .understand-needs-flow-item img {
+        width: 70px;
+    }
+
+
+    .understand-needs-flow-item:first-child {
+        border-radius: 15px 0 0 15px;
+        width: 60%;
+    }
+
+    .understand-needs-flow-item:nth-child(2) {
+        border-radius: 15px 0 0 0;
+        width: 70%;
+    }
+
+    .understand-needs-flow-item:nth-child(3) {
+        border-radius: 15px 0 0 0;
+        width: 90%;
+    }
+
+
+    .understand-needs-flow-item:last-child {
+        border-radius: 15px 15px 15px 0;
+        width: 100%;
+    } */
+
+
+}
+
+/* ============================= */
+/*      スキル　　　　　             */
+/* ============================= */
