@@ -1160,7 +1160,7 @@ summary::-webkit-details-marker {
 }
 
 /* UX設計の考え方 */
-.works-approach {
+/* .works-approach {
     border: 3px solid #ffffff;
     background-color: var(--gold);
     border-radius: calc((var(--h3-size) + var(--works-approach-h3-padding) * 2) / 2);
@@ -1193,7 +1193,7 @@ summary::-webkit-details-marker {
     details[open]::details-content {
         height: auto;
     }
-}
+} */
 /* 
 @supports not (interpolate-size: allow-keywords) {
     details[open]::details-content {
@@ -1201,6 +1201,47 @@ summary::-webkit-details-marker {
         overflow-y: scroll;
     }
 } */
+
+/* 1. 全ブラウザ共通：中身のコンテナ（detailsの中にあるdivなど） */
+.works-approach .details-container {
+    /* Safari対策：デフォルトでは普通に表示・非表示されるようにする */
+    overflow: hidden;
+}
+
+/* 2. 最新ブラウザ（Chrome/Edgeなど）向けのアニメーション設定 */
+@supports (interpolate-size: allow-keywords) {
+    :root {
+        interpolate-size: allow-keywords;
+    }
+
+    .works-approach::details-content {
+        transition: height 0.4s ease, opacity 0.4s ease;
+        height: 0;
+        opacity: 0;
+        overflow: clip;
+    }
+
+    .works-approach[open]::details-content {
+        height: auto;
+        opacity: 1;
+    }
+}
+
+/* 3. Safari用のフォールバック（interpolate-sizeが効かないブラウザ用） */
+@supports not (interpolate-size: allow-keywords) {
+    /* Safariでは ::details-content 自体が効かないことが多いので、
+       [open]になった時に中身がしっかり見えるように強制します */
+    .works-approach[open] {
+        height: auto;
+    }
+    
+    /* detailsの中にあるコンテンツが消えないようにする */
+    .works-approach[open] > *:not(summary) {
+        display: block;
+        height: auto;
+        opacity: 1;
+    }
+}
 
 .works-approach .details-container {
     display: none;
@@ -1493,6 +1534,7 @@ summary::-webkit-details-marker {
 /* ************************************** */
 /*      about  page   　　　　　　           */
 /* ************************************** */
+
 .strengths-container {
     display: flex;
     flex-direction: column;

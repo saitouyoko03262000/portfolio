@@ -57,7 +57,7 @@ img {
     gap: 5.2vw;
 }
 
-.about-h-p{
+.about-h-p {
     display: flex;
     flex-direction: column;
     gap: 4vw;
@@ -430,7 +430,7 @@ h2 {
 }
 
 .bg-stripe {
-  background-image: repeating-linear-gradient(45deg, var(--bg-color), var(--bg-color) 1px, transparent 1px, transparent clamp(4.375rem, 4.1rem + 1.38vw, 5.75rem) clamp(4.375rem, 4.1rem + 1.38vw, 5.75rem));
+    background-image: repeating-linear-gradient(45deg, var(--bg-color), var(--bg-color) 1px, transparent 1px, transparent clamp(4.375rem, 4.1rem + 1.38vw, 5.75rem) clamp(4.375rem, 4.1rem + 1.38vw, 5.75rem));
 }
 
 
@@ -476,6 +476,7 @@ h2 {
     opacity: 1;
 }
 
+
 /* 右から *******************************/
 /* inview fadeIn fadeIn_right          */
 /* inview_re fadeIn fadeIn_right       */
@@ -488,4 +489,17 @@ h2 {
 .fadeIn_right.is-show {
     transform: translate(0, 0);
     opacity: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .about-h-p-contains.fadeIn_up {
+    opacity: 0;
+    transform: translate(50%, 0);
+    transition: 2s;
+    }
+
+    .about-h-p-contains.fadeIn_up.is-show {
+    transform: translate(0, 0);
+    opacity: 1;
+    }
 }
