@@ -236,25 +236,79 @@
 /* ******************************** */
 
 /* 共有 about *************************************/
-.about-section {
+.about-section>div {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-start;
+    position: relative;
 }
 
 .about-img {
     width: 50%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
 }
 
 .about-h-p-contains {
     width: 45%;
     padding-right: var(--side-padding);
+    padding-top: 5vw;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.about-text p {
+    font-family: var(--kaisei-decol);
+    font-size: var(--h3-size);
+    color: var(--black);
+    margin-left: 1em;
+}
+
+.about-text dt {
+    width: 40px;
+    height: auto;
+}
+
+
+.about-text dd {
+    width: calc(100% - 40px - 15px);
+    font-family: var(--zen-kaku-gothic);
+    font-size: var(--txt-size);
+    color: var(--black);
+    line-height: 1;
+    margin-top: calc(45px / 2 - 1em / 2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 0;
+}
+
+.about-text-dd-gap {
+    margin-top: 10px;
+}
+
+.about-text>dl>div {
+    display: flex;
+    gap: 15px;
+}
+
+.about-h-p .button-right{
+    margin-top: 10px;
 }
 
 @media only screen and (max-width: 768px) {
-    .about-section {
+    .about-section>div {
         display: block;
     }
+
+    .about-img {
+    position: static;
+}
 
     .about-h-p-contains {
         width: 100%;
@@ -272,8 +326,9 @@
 
     .about-h-p {
         margin-top: -21.81vw;
-        padding: 0 min(7.81vw, 3.75rem) 0;
-        height: 49.6vw;
+        padding: min(7.81vw, 3.75rem);
+        /* height: 49.6vw; */
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -284,6 +339,16 @@
             inset -0.2rem -0.2rem 0.4rem 0 rgba(204, 223, 228, 0.05),
             inset 0.1rem 0.1rem 0.9rem 0 rgba(255, 255, 255, 0.25);
     }
+
+    .about-text dt {
+        width: clamp(1.563rem, 0.893rem + 3.35vw, 2.5rem);
+    }
+
+    .about-text dd {
+        width: calc(100% - clamp(1.563rem, 0.893rem + 3.35vw, 2.5rem) - 15px);
+        margin-top: calc(clamp(1.75rem, 0.991rem + 3.79vw, 2.813rem) / 2 - 1em / 2);
+    }
+
 }
 
 /* top-page about *************************************/
@@ -1720,7 +1785,7 @@ summary::-webkit-details-marker {
 /* ============================= */
 /*      スキル　　　　　             */
 /* ============================= */
-.skill-container{
+.skill-container {
     display: flex;
     flex-direction: column;
     gap: 1.5vw;

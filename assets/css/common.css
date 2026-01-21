@@ -57,6 +57,12 @@ img {
     gap: 5.2vw;
 }
 
+.about-h-p{
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+}
+
 .about-page section:not(.about-section)>div,
 .works-detail-section>div {
     width: 80%;
