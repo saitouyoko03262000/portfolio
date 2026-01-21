@@ -1202,6 +1202,14 @@ summary::-webkit-details-marker {
     }
 }
 
+.works-approach .details-container {
+    display: none;
+}
+
+.works-approach[open] .details-container {
+    display: flex;
+}
+
 .works-approach:has(summary:hover) {
     border: .1875rem solid var(--gold);
     background-color: #ffffff;
@@ -1955,7 +1963,7 @@ p:has(.star5_rating) {
     gap: 4px;
 }
 
-.video-bottom{
+.video-bottom {
     margin-top: 0;
 }
 
@@ -2011,7 +2019,7 @@ p:has(.star5_rating) {
 }
 
 .chair-font,
-#detail-chair .design-desc:first-child>span{
+#detail-chair .design-desc:first-child>span {
     font-family: var(--Shippori-Mincho);
 }
 
