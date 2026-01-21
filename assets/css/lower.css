@@ -32,6 +32,9 @@
 
 .lower-page-h1 h1 {
     z-index: 30;
+    max-width: 318px;
+    width: 30%;
+    width: 190px;
 }
 
 
@@ -297,7 +300,7 @@
     gap: 15px;
 }
 
-.about-h-p .button-right{
+.about-h-p .button-right {
     margin-top: 10px;
 }
 
@@ -307,8 +310,8 @@
     }
 
     .about-img {
-    position: static;
-}
+        position: static;
+    }
 
     .about-h-p-contains {
         width: 100%;
@@ -788,6 +791,11 @@ only screen and (max-width: 480px) {
     z-index: 100;
 }
 
+.two-pieces>div {
+    width: calc(var(--design-logic-flow-desc-width) / 2);
+    height: 100%;
+}
+
 .design-logic-flow dd>span {
     display: flex;
     flex-wrap: wrap;
@@ -865,25 +873,6 @@ only screen and (max-width: 480px) {
     /* padding-top: 8px; */
 }
 
-/* 各色 */
-
-:root {
-    --jewelry-blue: #4D93AD;
-    --jewelry-black: #282828;
-}
-
-.jewelry-blue::after {
-    background-color: var(--jewelry-blue);
-}
-
-.jewelry-black::after {
-    background-color: var(--jewelry-black);
-}
-
-.jewelry-font {
-    font-family: "メイリオ", Meiryo, sans-serif;
-    font-weight: bold;
-}
 
 /* ====================================== */
 /* 　　　　　  矢印                          */
@@ -909,14 +898,15 @@ only screen and (max-width: 480px) {
     --design-logic-flow-desc-space-between: calc((100% - var(--flow-dt-width) - var(--design-logic-flow-desc-width) * 3)/ 3);
 }
 
-.arrows>div:first-child {
-    /* margin-left: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-width) / 2 + var(--design-logic-flow-desc-space-between)); */
-    width: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-space-between));
-}
 
 .arrows>div {
     height: var(--arrows-height);
     /* background-color: aqua; */
+}
+
+.arrows>div:first-child {
+    /* margin-left: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-width) / 2 + var(--design-logic-flow-desc-space-between)); */
+    width: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-space-between));
 }
 
 .arrows>div:nth-child(3),
@@ -930,8 +920,31 @@ only screen and (max-width: 480px) {
 }
 
 
+/* 上２個の場合 */
+.arrows.arrows-two-pieces>div:first-child {
+    /* margin-left: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-width) / 2 + var(--design-logic-flow-desc-space-between)); */
+    width: calc(var(--flow-dt-width) + var(--design-logic-flow-desc-space-between));
+}
+
+/* .arrows.arrows-two-pieces>div:nth-child(3), */
+.arrows.arrows-two-pieces>div:nth-child(4) {
+    width: calc(var(--design-logic-flow-desc-width) + var(--design-logic-flow-desc-space-between) - 2px);
+}
+
+.arrows.arrows-two-pieces>div:nth-child(2),
+.arrows.arrows-two-pieces>div:nth-child(3),
+.arrows.arrows-two-pieces>div:nth-child(5),
+.arrows.arrows-two-pieces>div:last-child {
+    width: calc(var(--design-logic-flow-desc-width) / 2 - 2px);
+}
+
+
+
+
 /* 矢印の向き *********************************/
 /* 真下 */
+
+
 .down-arrow {
     width: 100%;
     height: var(--arrows-height);
@@ -985,9 +998,20 @@ only screen and (max-width: 480px) {
     transform-origin: center;
 }
 
+
+/* 上が２個の場合 */
+.arrows-two-pieces .diagonal-arrow::after,
+.arrows-two-pieces .merge-arrow-bottom::after {
+    transform: translateX(3px) rotate(5deg);
+}
+
 /* 斜め左 */
 .bottom-left-arrow {
     scale: -1 1;
+}
+
+.bottom-left-arrow-div-fit {
+    transform: translateX(-100%);
 }
 
 /* 合流矢印 */
@@ -1008,6 +1032,32 @@ only screen and (max-width: 480px) {
     height: calc(var(--arrows-height) / 3 * 2 + 3px);
     margin-top: -3px;
     margin-left: auto;
+}
+
+.merge-arrow-bottom-down.down-arrow {
+    width: 50%;
+    height: calc(var(--arrows-height) / 3 * 2 + 3px);
+}
+
+
+.down-arrow {
+    width: 100%;
+    height: var(--arrows-height);
+    border-left: 3px solid var(--dark-gold);
+    position: relative;
+}
+
+.down-arrow::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-bottom: 3px solid var(--dark-gold);
+    border-left: 3px solid var(--dark-gold);
+    bottom: -2px;
+    left: -1px;
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
 }
 
 
@@ -1392,33 +1442,6 @@ summary::-webkit-details-marker {
 }
 
 
-
-/* ========================== */
-/*    各サイト別　設定           */
-/* ========================== */
-.web-jewelry .color-sample>div:first-child {
-    background-color: var(--jewelry-blue);
-}
-
-.web-jewelry .color-sample>div:first-child::after {
-    content: "#4D93AD";
-}
-
-.web-jewelry .color-sample>div:last-child {
-    background-color: var(--jewelry-black);
-}
-
-.web-jewelry .color-sample>div:last-child::after {
-    content: "#282828";
-}
-
-.web-jewelry .design-desc:first-child>span {
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
-}
-
-.web-jewelry .design-desc:last-child>span {
-    font-family: "メイリオ", "Meiryo", sans-serif;
-}
 
 
 /* ======================== */
@@ -1888,47 +1911,265 @@ p:has(.star5_rating) {
 /* ************************* */
 /*       コレクション           */
 /* ************************* */
-.collections-page{
+.collections-page {
     background-color: #070707;
 }
 
-.collections-page h1{
+.collections-page h1 {
     font-family: var(--kaisei-decol);
     color: var(--gold);
     font-size: var(--h2-size);
 }
 
-.collections-page>div{
+.collections-page>div {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
-    padding: var(--section-padding-t-b) 0;
+    padding: 200px 0 0 var(--section-padding-t-b);
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.collection-item img{
-/* height: 100%; */
-width: 100%;
-object-fit: cover;
+.collection-item img {
+    /* height: 100%; */
+    width: 100%;
+    object-fit: cover;
 }
 
-.collection-item video{
+.collection-item video {
     width: 100%;
     height: auto;
 }
 
-.collections-page>div>div{
+.collections-page>div>div {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
 
-.collection-item{
+.collection-item {
     width: calc(33.33% - 8px / 3);
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
 
+/* ========================== */
+/*    各サイト別　設定           */
+/* ========================== */
+/* 各色 */
+
+:root {
+    --jewelry-blue: #4D93AD;
+    --jewelry-black: #282828;
+
+    --chair-gray: #dfdfdf;
+    --chair-pink: #fcebf3;
+
+    --whiskey-gray: #E9E9E8;
+    --whiskey-green: #769C83;
+    --whiskey-black: #030000;
+
+    --sauna-yellow: #F7F7C3;
+    --sauna-blue: #5275AE;
+
+    --museum-dark-green: #131D13;
+    --museum-green: #014803;
+    --museum-light-green: #B2D6B3;
+
+    --meiryo: "メイリオ", "Meiryo", sans-serif;
+    --impact: Impact, 'Arial Narrow Bold', sans-serif;
+    --Shippori-Mincho: "Shippori Mincho", serif;
+    --Noto-Serif: "Noto Serif", serif;
+    --Luckiest-Guy: "Luckiest Guy", cursive;
+    --Mochiy-Pop-One: "Mochiy Pop One", sans-serif;
+    --Noto-Sans-JP: "Noto Sans JP", sans-serif;
+
+    --border-gray: 1px solid var(--gray);
+
+}
+
+/* 椅子販売店 */
+.chair-gray::after,
+#detail-chair .color-sample>div:nth-child(2) {
+    background-color: var(--chair-gray);
+}
+
+#detail-chair .color-sample>div:last-child,
+.chair-pink::after {
+    background-color: var(--chair-pink);
+}
+
+#detail-chair .color-sample>div:first-child {
+    background-color: #ffffff;
+    border: var(--border-gray);
+}
+
+.chair-font,
+#detail-chair .design-desc:first-child>span{
+    font-family: var(--Shippori-Mincho);
+}
+
+#detail-chair .color-sample>div:first-child::after {
+    content: "#FFFF";
+    color: var(--gray);
+}
+
+#detail-chair .color-sample>div:nth-child(2):after {
+    content: "#DFDFDF";
+}
+
+#detail-chair .color-sample>div:last-child::after {
+    content: "#FCEBF3";
+}
+
+/* ジュエリーショップ */
+.jewelry-blue::after,
+#detail-jewelry .color-sample>div:first-child {
+    background-color: var(--jewelry-blue);
+}
+
+#detail-jewelry .color-sample>div:last-child,
+.jewelry-black::after {
+    background-color: var(--jewelry-black);
+}
+
+.jewelry-font,
+#detail-jewelry .design-desc:last-child>span {
+    font-family: var(--meiryo);
+}
+
+
+#detail-jewelry .color-sample>div:first-child::after {
+    content: "#4D93AD";
+}
+
+#detail-jewelry .color-sample>div:last-child::after {
+    content: "#282828";
+}
+
+#detail-jewelry .design-desc:first-child>span {
+    font-family: var(--impact);
+}
+
+
+/* ウイスキー */
+.whiskey-gray::after,
+#detail-whiskey .color-sample>div:first-child {
+    background-color: var(--whiskey-gray);
+}
+
+#detail-whiskey .color-sample>div:nth-child(2),
+.whiskey-pink::after {
+    background-color: var(--whiskey-green);
+}
+
+#detail-whiskey .color-sample>div:last-child {
+    background-color: var(--whiskey-black);
+}
+
+
+.whiskey-font,
+#detail-whiskey .design-desc:first-child>span {
+    font-family: var(--Shippori-Mincho);
+}
+
+#detail-whiskey .color-sample>div:first-child::after {
+    content: "#E9E9E8";
+}
+
+#detail-whiskey .color-sample>div:nth-child(2)::after {
+    content: "#769C83";
+}
+
+#detail-whiskey .color-sample>div:last-child::after {
+    content: "#030000";
+}
+
+#detail-whiskey .design-desc:first-child>span {
+    font-family: var(--Noto-Serif);
+}
+
+/* サウナ */
+#detail-sauna .color-sample>div:first-child {
+    background-color: #ffffff;
+    border: var(--border-gray);
+}
+
+#detail-sauna .color-sample>div:nth-child(2),
+.sauna-yellow::after {
+    background-color: var(--sauna-yellow);
+}
+
+.sauna-blue::after,
+#detail-sauna .color-sample>div:last-child {
+    background-color: var(--sauna-blue);
+}
+
+.sauna-font,
+#detail-sauna .design-desc:first-child>span {
+    font-family: var(----Luckiest-Guy);
+}
+
+#detail-sauna .design-desc:nth-child(2)>span {
+    font-family: var(--zen-kaku-gothic);
+}
+
+#detail-sauna .color-sample>div:first-child::after {
+    content: "#FFFF";
+    color: var(--gray);
+}
+
+#detail-sauna .color-sample>div:nth-child(2)::after {
+    content: "#F7F7C3";
+}
+
+#detail-sauna .color-sample>div:last-child::after {
+    content: "#5275AE";
+}
+
+/* #detail-sauna .design-desc:first-child>span {
+    font-family: var(--);
+} */
+
+
+/* 博物館 */
+.museum-dark-green::after,
+#detail-museum .color-sample>div:first-child {
+    background-color: var(--museum-dark-green);
+}
+
+#detail-museum .color-sample>div:nth-child(2),
+.museum-green::after {
+    background-color: var(--museum-green);
+}
+
+#detail-museum .color-sample>div:last-child {
+    background-color: var(--museum-light-green);
+}
+
+.museum-font,
+#detail-museum .design-desc:first-child>span {
+    font-family: var(--Mochiy-Pop-One);
+}
+
+#detail-museum .design-desc:nth-child(2)>span {
+    font-family: var(--Noto-Sans-JP);
+}
+
+#detail-museum .color-sample>div:first-child::after {
+    content: "#131D13";
+}
+
+#detail-museum .color-sample>div:nth-child(2)::after {
+    content: "#014803";
+}
+
+#detail-museum .color-sample>div:last-child::after {
+    content: "#B2D6B3";
+}
+
+/* #detail-museum .design-desc:first-child>span {
+    font-family: var(--);
+} */
