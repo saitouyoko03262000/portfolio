@@ -1197,7 +1197,7 @@ summary::-webkit-details-marker {
 
 @supports not (interpolate-size: allow-keywords) {
     details[open]::details-content {
-        height: 90vh;
+        height: 500px;
         overflow-y: scroll;
     }
 }
@@ -1964,7 +1964,7 @@ p:has(.star5_rating) {
 }
 
 .video-bottom {
-    margin-top: 0;
+align-self: flex-end;
 }
 
 /* ========================== */
