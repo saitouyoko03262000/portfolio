@@ -1885,4 +1885,26 @@ p:has(.star5_rating) {
     width: 20%;
 }
 
-/*  */
+/* ************************* */
+/*       コレクション           */
+/* ************************* */
+.collections-page{
+    background-color: #070707;
+}
+
+.collections-page>div{
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: var(--section-padding-t-b) 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.collection-item{
+    width: calc(33% - 8px);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
