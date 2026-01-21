@@ -6,6 +6,11 @@
 /*        header        */
 /* ******************** */
 
+header{
+    position: relative;
+    z-index: 1000;
+}
+
 /* ナビゲーション内のリンク */
 .nav-pc ul li>a,
 .nav-logo a {

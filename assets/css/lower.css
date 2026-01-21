@@ -1928,7 +1928,7 @@ p:has(.star5_rating) {
     padding: 200px 0 0 var(--section-padding-t-b);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 }
 
 .collection-item img {
@@ -1953,6 +1953,10 @@ p:has(.star5_rating) {
     display: flex;
     flex-direction: column;
     gap: 4px;
+}
+
+.video-bottom{
+    margin-top: 0;
 }
 
 /* ========================== */
