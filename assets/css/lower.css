@@ -1954,6 +1954,7 @@ p:has(.star5_rating) {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
+    align-items: flex-end;
 }
 
 .collection-item {
