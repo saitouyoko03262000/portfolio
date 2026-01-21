@@ -156,8 +156,8 @@ h2 {
     margin-right: .625rem;
     margin-top: -0.1875rem;
 
-    filter:
-        drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff);
+    /* filter:
+        drop-shadow(2px 0 0 #fff) drop-shadow(-2px 0 0 #fff) drop-shadow(0 2px 0 #fff) drop-shadow(0 -2px 0 #fff); */
 }
 
 .h2-center {

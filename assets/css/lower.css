@@ -1892,19 +1892,43 @@ p:has(.star5_rating) {
     background-color: #070707;
 }
 
+.collections-page h1{
+    font-family: var(--kaisei-decol);
+    color: var(--gold);
+    font-size: var(--h2-size);
+}
+
 .collections-page>div{
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
     padding: var(--section-padding-t-b) 0;
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.collection-item img{
+/* height: 100%; */
+width: 100%;
+object-fit: cover;
+}
+
+.collection-item video{
+    width: 100%;
+    height: auto;
+}
+
+.collections-page>div>div{
+    display: flex;
     flex-wrap: wrap;
     gap: 4px;
 }
 
 .collection-item{
-    width: calc(33% - 8px);
+    width: calc(33.33% - 8px / 3);
     display: flex;
     flex-direction: column;
     gap: 4px;
 }
+
