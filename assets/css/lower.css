@@ -1925,7 +1925,7 @@ p:has(.star5_rating) {
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
-    padding: 200px 0 0 var(--section-padding-t-b);
+    padding: 200px 0 var(--section-padding-t-b) 0;
     display: flex;
     flex-direction: column;
     gap: 40px;
