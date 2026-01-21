@@ -1194,13 +1194,13 @@ summary::-webkit-details-marker {
         height: auto;
     }
 }
-
+/* 
 @supports not (interpolate-size: allow-keywords) {
     details[open]::details-content {
         height: 500px;
         overflow-y: scroll;
     }
-}
+} */
 
 .works-approach .details-container {
     display: none;
